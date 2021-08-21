@@ -1,0 +1,24 @@
+{
+  "name": "open-recruitment-omah-ti-2021",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open Recruitment OmahTI 2021",
+  "author": "scantarbian",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^3.11.1",
+    "gatsby-plugin-sass": "^4.12.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.38.0"
+  }
+}

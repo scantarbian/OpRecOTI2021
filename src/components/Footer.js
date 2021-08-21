@@ -2,7 +2,7 @@ import * as React from "react"
 
 import Facebook from "../assets/svg/soc-med/facebook.svg"
 import Instagram from "../assets/svg/soc-med/instagram.svg"
-import LINE from "../assets/svg/soc-med/line.svg"
+import Line from "../assets/svg/soc-med/line.svg"
 import LinkedIn from "../assets/svg/soc-med/linkedin.svg"
 import Twitter from "../assets/svg/soc-med/twitter.svg"
 import YouTube from "../assets/svg/soc-med/youtube.svg"
@@ -13,7 +13,7 @@ const socialMedias = [
     target: "https://instagram.com/omahti_ugm"
   },
   {
-    icon: <LINE className="h-4" />,
+    icon: <Line className="h-4" />,
     target: "https://page.line.me/fpf3818n"
   },
   {

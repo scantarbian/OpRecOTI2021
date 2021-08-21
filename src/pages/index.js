@@ -6,7 +6,7 @@ const IndexPage = () => {
   return (
     <div className="text-white">
       <title>Open Recruitment OmahTI 2021</title>
-      <main className="flex flex-col py-8 px-20 space-y-32">
+      <main className="flex flex-col py-16 px-24 space-y-16">
         <Welcome />
         <About />
       </main>

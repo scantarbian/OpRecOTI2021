@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "gatsby": "^3.11.1",
+    "gatsby-plugin-react-svg": "^3.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "tailwindcss-border-gradients": "^2.0.3"

@@ -2,7 +2,7 @@ import * as React from "react"
 
 const Core = ({ children }) => {
   return (
-    <div className="flex flex-col space-y-4 text-center items-center p-8 rounded-3xl
+    <div className="flex flex-col space-y-8 text-center items-center p-16 rounded-3xl
       border-2
       backdrop-filter backdrop-blur-lg bg-opacity-25 bg-black">
       {children}
@@ -31,7 +31,7 @@ export const About = () => {
     <Core>
       <h1 className="font-bold text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400">ABOUT OMAHTI</h1>
-      <p className="font-medium"> 
+      <p className="font-medium text-justify "> 
         Organisasi Mahasiswa Ahli Teknologi Informasi atau lebih dikenal OmahTI bermula pada awal September 2002 di Laboratorium Inovasi. 
         Kemudian Laboratorium ini berubah nama, sifat dan orientasi kegiatannya. 
         Berdiri dengan tujuan sebagai pusat pengembangan potensi mahasiswa Ilmu Komputer UGM di bidang Teknologi informasi.

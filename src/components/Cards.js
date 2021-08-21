@@ -3,15 +3,39 @@ import * as React from "react"
 import { Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 
+import Benefit1 from "../assets/svg/benefits/one.svg"
+import Benefit2 from "../assets/svg/benefits/two.svg"
+import Benefit3 from "../assets/svg/benefits/three.svg"
+import Benefit4 from "../assets/svg/benefits/four.svg"
+
 const Core = ({ children }) => {
   return (
-    <div className="flex flex-col space-y-4 text-center items-center p-16 rounded-3xl
+    <div className="flex flex-col space-y-6 text-center items-center p-16 rounded-3xl
       border-2
       backdrop-filter backdrop-blur-lg bg-opacity-25 bg-black">
       {children}
     </div>
   )
 }
+
+const benefitsList = [
+  {
+    icon: <Benefit1 className="w-48 fill-current"/>,
+    text: 'Menambah link dan relasi dalam organisasi terkeren di Ilmu Komputer Universitas Gadjah Mada'
+  },
+  {
+    icon: <Benefit2 className="w-48 fill-current"/>,
+    text: 'Mengikuti pelatihan mingguan dalam divisi yang akan mengasah kemampuan hardskill kamu.'
+  },
+  {
+    icon: <Benefit3 className="w-48 fill-current"/>,
+    text: 'Melakukan kegiatan-kegiatan seru di OmahTI yang dapat melatih softskill kamu'
+  },
+  {
+    icon: <Benefit4 className="w-48 fill-current"/>,
+    text: 'Berkesempatan mengikuti projek untuk mengisi CV dan unjuk kemampuanmu'
+  }
+]
 
 export const Welcome = () => {
   return (
@@ -38,7 +62,22 @@ export const WhatWeDo = () => {
       <p className="font-semibold text-center text-lg"> 
         Di OmahTI, kita bakal bersama-sama mengasah Hard Skill dan Soft Skill melalui program kerja yang pastinya seru banget! Penasaran? Gabung makanya!
       </p>
+      <div className="flex space-x-4 items-center">
+        <StaticImage src="../assets/image/kegiatan/1.jpg" alt="Foto Kegiatan OmahTI UGM" className="w-1/3 rounded-xl"/>
+        <StaticImage src="../assets/image/kegiatan/2.jpg" alt="Foto Kegiatan OmahTI UGM" className="w-1/3 rounded-xl"/>
+        <StaticImage src="../assets/image/kegiatan/3.jpg" alt="Foto Kegiatan OmahTI UGM" className="w-1/3 rounded-xl"/>
+      </div>
     </Core>
+  )
+}
+
+export const Timeline = () => {
+  return (
+    <div className="flex flex-col items-center px-16">
+      <h1 className="font-black text-5xl leading-none
+      text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400">RECRUITMENT TIMELINE</h1>
+      <StaticImage src="../assets/image/timeline.png" alt="Timeline Open Recruitment OmahTI UGM" className="w-2/3"/>
+    </div>
   )
 }
 
@@ -52,6 +91,32 @@ export const About = () => {
         Kemudian Laboratorium ini berubah nama, sifat dan orientasi kegiatannya. 
         Berdiri dengan tujuan sebagai pusat pengembangan potensi mahasiswa Ilmu Komputer UGM di bidang Teknologi informasi.
       </p>
+    </Core>
+  )
+}
+
+export const Benefits = () => {
+  return (
+    <Core>
+      <h1 className="font-black text-5xl leading-none
+      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400">BENEFITS</h1>
+      <div className="flex space-x-4">
+        {benefitsList.map((benefit, index) => (
+          <div key={index} className="flex flex-col items-center w-1/4 space-y-4">
+            {benefit.icon}
+            <p className="text-center">{benefit.text}</p>
+          </div>
+        ))}
+      </div>
+    </Core>
+  )
+}
+
+export const Faq = () => {
+  return (
+    <Core>
+      <h1 className="font-black text-5xl leading-none
+      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400">FREQUENTLY ASKED QUESTIONS</h1>
     </Core>
   )
 }

@@ -3,5 +3,5 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "Open Recruitment OmahTI 2021",
   },
-  plugins: ["gatsby-plugin-sass"],
+  plugins: ["gatsby-plugin-postcss"],
 };

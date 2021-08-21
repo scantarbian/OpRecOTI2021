@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply h-full m-0 bg-no-repeat bg-auto bg-gradient-to-b from-blue-900 via-indigo-900 to-black;
+  }
+}

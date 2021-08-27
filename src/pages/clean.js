@@ -20,7 +20,7 @@ const HomepageAlt = () => {
         <div className="absolute bg-gradient-to-tr from-yellow-300 to-white w-32 h-32 rounded-full ml-10" style={{top: '30px'}}/>
         <div className="absolute bg-gradient-to-br from-purple-800 to-black w-28 h-28 rounded-full ml-10" style={{top: '384px'}}/>
         <div className="absolute bg-gradient-to-bl from-green-900 to-green-300 w-28 h-28 rounded-full ml-12" style={{top: '592px'}}/>
-        <div className="absolute bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-16" style={{top: '1040px'}}/>
+        <div className="absolute bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-16 z-20" style={{top: '1040px'}}/>
         <div className="absolute right-0 bg-gradient-to-bl from-blue-900 to-blue-400 w-20 h-20 rounded-full mr-96 z-20" style={{top: '130px'}}/>
         <div className="absolute right-0 bg-gradient-to-tl from-red-700 to-yellow-400 w-40 h-40 rounded-full mr-10" style={{top: '390px'}}/>
         <div className="absolute right-0 bg-gradient-to-tr from-red-700 via-blue-700 to-white w-36 h-36 rounded-full mr-32" style={{top: '582px'}}/>

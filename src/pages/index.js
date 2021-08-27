@@ -8,8 +8,8 @@ import {
   Benefits,
   Faq,
 } from "../components/Cards";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Timeline } from "../components/Timeline";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const Homepage = () => {
   return (

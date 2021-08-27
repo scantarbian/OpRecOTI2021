@@ -119,10 +119,8 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
 
   useEffect(() => {
     if (inView) {
-      console.log("hello");
       animate.start("visible");
     }
-    console.log("masuk");
   }, [animate, inView]);
 
   const svgVariants = {
@@ -145,7 +143,7 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-auto">
+    <div className="flex flex-col items-center justify-center h-auto w-full">
       <div className="flex flex-row items-end">
         {left && (
           <>
@@ -153,13 +151,13 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
             <div className="flex flex-col w-60">
               <span
                 style={{ fontFamily: "Inter" }}
-                className="text-4xl font-bold"
+                className="text-4xl font-bold text-white"
               >
                 {title}
               </span>
               <span
                 style={{ fontFamily: "Inter" }}
-                className="text-xl font-normal"
+                className="text-xl font-normal text-white"
               >
                 {date}
               </span>
@@ -167,6 +165,7 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
           </>
         )}
         <svg
+          className="flex-none"
           ref={iconRef}
           width="469"
           height="239"
@@ -213,19 +212,19 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
         </svg>
         {left || (
           <>
-            <div className="w-64 order-first" />
-            <div className="flex flex-col">
+            <div className="w-60 order-first" />
+            <div className="flex flex-col flex-grow-0 w-60">
               <span
                 style={{ fontFamily: "Inter" }}
-                className="text-4xl font-bold"
+                className="text-4xl font-bold text-white"
               >
-                First Gathering
+                {title}
               </span>
               <span
                 style={{ fontFamily: "Inter" }}
-                className="text-xl font-normal"
+                className="text-xl font-normal text-white"
               >
-                First Gathering
+                {date}
               </span>
             </div>
           </>

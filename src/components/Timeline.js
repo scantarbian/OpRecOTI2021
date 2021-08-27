@@ -1,26 +1,88 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import { useInView } from "react-intersection-observer";
+
+const TimelineData = [
+  {
+    title: "Publish Soal",
+    date: "1 September 2021",
+    color: "#28DBAD",
+    image: "Image1",
+    left: false,
+  },
+  {
+    title: "Pengerjaan Tugas",
+    date: "2-12 Spetember 2021",
+    color: "#4524D2",
+    image: "Image2",
+    left: true,
+  },
+  {
+    title: "Wawancara",
+    date: "10-15 September 2021",
+    color: "#A5A6F6",
+    image: "Image3",
+    left: false,
+  },
+  {
+    title: "Pengumuman",
+    date: "24 September 2021",
+    color: "#A044E3",
+    image: "Image4",
+    left: true,
+  },
+  {
+    title: "First Gathering",
+    date: "2 Oktober 2021",
+    color: "#FC69D0",
+    image: "Image5",
+    left: false,
+  },
+];
 
 export const Timeline = () => {
-  const svgVariants = {
-    hidden: {
-      opacity: 0,
-      pathLength: 0,
-      strokeWidth: 8,
-      strokeLinecap: "round",
-    },
-    visible: {
-      opacity: 1,
-      pathLength: 1,
-      strokeWidth: 8,
-      strokeLinecap: "round",
-      transition: {
-        duration: 2,
-        ease: "easeInOut",
-      },
-    },
-  };
+  const data = useStaticQuery(graphql`
+    query {
+      Image1: file(relativePath: { eq: "image/timeline-icons/image1.png" }) {
+        childImageSharp {
+          fixed(width: 175) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      Image2: file(relativePath: { eq: "image/timeline-icons/image2.png" }) {
+        childImageSharp {
+          fixed(width: 175) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      Image3: file(relativePath: { eq: "image/timeline-icons/image3.png" }) {
+        childImageSharp {
+          fixed(width: 175) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      Image4: file(relativePath: { eq: "image/timeline-icons/image4.png" }) {
+        childImageSharp {
+          fixed(width: 175) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      Image5: file(relativePath: { eq: "image/timeline-icons/image5.png" }) {
+        childImageSharp {
+          fixed(width: 175) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
   return (
     <div className="flex flex-col items-center px-16">
       <h1
@@ -29,63 +91,40 @@ export const Timeline = () => {
       >
         RECRUITMENT TIMELINE
       </h1>
-      <StaticImage
-        src="../assets/image/timeline.png"
-        alt="Timeline Open Recruitment OmahTI UGM"
-        className="w-2/3"
-      />
-      <svg
-        width="303"
-        height="161"
-        viewBox="0 0 303 161"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          variants={svgVariants}
-          initial="hidden"
-          animate="visible"
-          d="M152 5V69.352C194.328 69.352 228.642 104.116 228.642 147H280.873"
-          stroke="#28DBAD"
-          stroke-width="8"
-          stroke-linecap="round"
-        />
-        <path
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
-          }}
-          d="M289.362 156C293.98 156 297.724 152.194 297.724 147.5C297.724 142.806 293.98 139 289.362 139C284.744 139 281 142.806 281 147.5C281 152.194 284.744 156 289.362 156Z"
-          fill="#28DBAD"
-        />
-      </svg>
-      <svg
-        width="303"
-        height="161"
-        viewBox="0 0 303 161"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M151 5V69.352C108.672 69.352 74.3584 104.116 74.3584 147H22.1266"
-          stroke="#4524D2"
-          stroke-width="8"
-          stroke-linecap="round"
-        />
-        <path
-          d="M13.638 156C9.01977 156 5.27597 152.194 5.27597 147.5C5.27597 142.806 9.01977 139 13.638 139C18.2562 139 22 142.806 22 147.5C22 152.194 18.2562 156 13.638 156Z"
-          fill="#4524D2"
-        />
-      </svg>
-      <TimelineArrow color={"#A5A6F6"} />
-      <TimelineArrow color={"#A044E3"} left />
-      <TimelineArrow color={"#FC69D0"} />
+      {TimelineData.map((item, index) => (
+        <TimelineGraphic
+          key={index}
+          title={item.title}
+          date={item.date}
+          color={item.color}
+          left={item.left}
+        >
+          <Img
+            fixed={data[item.image].childImageSharp.fixed}
+            alt="icon timeline"
+          />
+        </TimelineGraphic>
+      ))}
     </div>
   );
 };
 
-const TimelineArrow = ({ color, left }) => {
+const TimelineGraphic = ({ title, date, color, left, children }) => {
+  const [iconRef, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-15%",
+  });
+
+  const animate = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      console.log("hello");
+      animate.start("visible");
+    }
+    console.log("masuk");
+  }, [animate, inView]);
+
   const svgVariants = {
     hidden: {
       opacity: 0,
@@ -99,57 +138,120 @@ const TimelineArrow = ({ color, left }) => {
       strokeWidth: 8,
       strokeLinecap: "round",
       transition: {
-        duration: 2,
+        duration: 1,
         ease: "easeInOut",
       },
     },
   };
+
   return (
-    <div className="flex flex-row items-end">
-      {left && (
-        <span style={{ fontFamily: "Inter" }} className="relative">
-          First Gathering
-        </span>
-      )}
-      <svg
-        width="303"
-        height="161"
-        viewBox="0 0 303 161"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          variants={svgVariants}
-          initial="hidden"
-          animate="visible"
-          d={
-            left
-              ? "M151 5V69.352C108.672 69.352 74.3584 104.116 74.3584 147H22.1266"
-              : "M152 5V69.352C194.328 69.352 228.642 104.116 228.642 147H280.873"
-          }
-          stroke={color}
-          stroke-width="8"
-          stroke-linecap="round"
-        />
-        <motion.path
-          initial={{ opacity: 0 }}
-          animate={{
+    <div className="flex flex-col items-center justify-center h-auto">
+      <div className="flex flex-row items-end">
+        {left && (
+          <>
+            <div className="w-60 order-last" />
+            <div className="flex flex-col w-60">
+              <span
+                style={{ fontFamily: "Inter" }}
+                className="text-4xl font-bold"
+              >
+                {title}
+              </span>
+              <span
+                style={{ fontFamily: "Inter" }}
+                className="text-xl font-normal"
+              >
+                {date}
+              </span>
+            </div>
+          </>
+        )}
+        <svg
+          ref={iconRef}
+          width="469"
+          height="239"
+          viewBox="0 0 469 239"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.path
+            animate={animate}
+            initial="hidden"
+            variants={svgVariants}
+            d={
+              left
+                ? "M234 7V96.9433C174.062 96.9433 125.472 145.533 125.472 205.47H51.51"
+                : "M235 7V96.9433C294.938 96.9433 343.528 145.533 343.528 205.47H417.49"
+            }
+            stroke={color}
+            stroke-width="8"
+            stroke-linecap="round"
+          />
+          <motion.path
+            initial="hidden"
+            animate={animate}
+            variants={{
+              hidden: {
+                opacity: 0,
+              },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: "easeIn",
+                  delay: 1,
+                },
+              },
+            }}
+            d={
+              left
+                ? "M51.5049 219.991C43.4996 219.991 37.0099 213.501 37.0099 205.495C37.0099 197.49 43.4996 191 51.5049 191C59.5103 191 66 197.49 66 205.495C66 213.501 59.5103 219.991 51.5049 219.991Z"
+                : "M417.495 219.991C425.5 219.991 431.99 213.501 431.99 205.495C431.99 197.49 425.5 191 417.495 191C409.49 191 403 197.49 403 205.495C403 213.501 409.49 219.991 417.495 219.991Z"
+            }
+            fill={color}
+          />
+        </svg>
+        {left || (
+          <>
+            <div className="w-64 order-first" />
+            <div className="flex flex-col">
+              <span
+                style={{ fontFamily: "Inter" }}
+                className="text-4xl font-bold"
+              >
+                First Gathering
+              </span>
+              <span
+                style={{ fontFamily: "Inter" }}
+                className="text-xl font-normal"
+              >
+                First Gathering
+              </span>
+            </div>
+          </>
+        )}
+      </div>
+      <motion.div
+        className="absolute"
+        initial="hidden"
+        animate={animate}
+        variants={{
+          hidden: {
+            opacity: 0,
+            y: 100,
+          },
+          visible: {
             opacity: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
-          }}
-          d={
-            left
-              ? "M13.638 156C9.01977 156 5.27597 152.194 5.27597 147.5C5.27597 142.806 9.01977 139 13.638 139C18.2562 139 22 142.806 22 147.5C22 152.194 18.2562 156 13.638 156Z"
-              : "M289.362 156C293.98 156 297.724 152.194 297.724 147.5C297.724 142.806 293.98 139 289.362 139C284.744 139 281 142.806 281 147.5C281 152.194 284.744 156 289.362 156Z"
-          }
-          fill={color}
-        />
-      </svg>
-      {left || (
-        <span style={{ fontFamily: "Inter", fontWeight: 400 }}>
-          First Gathering
-        </span>
-      )}
+            y: 80,
+            transition: {
+              duration: 1,
+              delay: 1,
+            },
+          },
+        }}
+      >
+        {children}
+      </motion.div>
     </div>
   );
 };

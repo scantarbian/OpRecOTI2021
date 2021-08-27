@@ -24,6 +24,14 @@ module.exports = {
         display: 'standalone',
         icon: 'src/assets/favicon.ico',
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Inter"],
+        },
+      },
+    },
   ],
 };

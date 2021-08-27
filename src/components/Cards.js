@@ -12,7 +12,7 @@ import Benefit4 from "../assets/svg/benefits/four.svg"
 const Core = ({ children }) => {
   return (
     <div className="flex flex-col space-y-6 text-center items-center p-8 rounded-3xl mx-24 text-white
-      border-2 
+      border-2 z-10
       backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black ">
       {children}
     </div>

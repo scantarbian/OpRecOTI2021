@@ -12,7 +12,7 @@ import Benefit4 from "../assets/svg/benefits/four.svg"
 const Core = ({ children }) => {
   return (
     <div className="flex flex-col space-y-6 text-center items-center p-16 rounded-3xl
-      border-2
+      border-2 text-white
       backdrop-filter backdrop-blur-lg bg-opacity-25 bg-black">
       {children}
     </div>
@@ -75,9 +75,12 @@ export const Welcome = () => {
         <p>Bergabung bersama kami untuk ikut berkontribusi di berbagai bidang IT. <br/>Tingkatkan skillmu dan belajar bersama kami.</p>
         <span className="text-yellow-400">Join OmahTI!</span>
       </div>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+      <a href="https://s.id/OprecMAKOMTI2021" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl" target="_blank" rel="noopener noreferrer">
+        <span>Daftar</span>
+      </a>
+      {/* <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
         Daftar
-      </Link>
+      </Link> */}
     </Core>
   )
 }
@@ -130,7 +133,7 @@ export const Benefits = () => {
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400">BENEFITS</h2>
       <div className="flex space-x-4">
         {benefitsList.map((benefit, index) => (
-          <div key={index} className="flex flex-col items-center w-1/4 space-y-4">
+          <div key={index} className="flex flex-col items-center w-1/4 space-y-8">
             {benefit.icon}
             <p className="text-center">{benefit.text}</p>
           </div>
@@ -155,7 +158,7 @@ export const Faq = () => {
                 key={`question-${index}`} 
                 value={index} 
                 className={`cursor-pointer text-left p-2 border-b-2 border-transparent hover:border-yellow-600 
-                ${selected == index ? 'font-bold border-yellow-600' : null }`}
+                ${selected === index ? 'font-bold border-yellow-600' : null }`}
                 onClick={(e) => {setSelected(index); console.log(selected)}}
               >
                 {faq.q}
@@ -165,7 +168,7 @@ export const Faq = () => {
         </div>
         <div className="w-2/3">
           {
-            faqList.filter((faq, index) => index == selected).map((faq, index) => (
+            faqList.filter((faq, index) => index === selected).map((faq, index) => (
               <div key={`answer-${index}`} className="flex flex-col text-left space-y-2">
                 <h3 className="font-black text-3xl
                 text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400">{faq.q}</h3>

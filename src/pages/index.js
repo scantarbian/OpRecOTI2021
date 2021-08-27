@@ -19,7 +19,7 @@ const Homepage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={0.05} speed={-0.6}><div className="block bg-gradient-to-tr from-yellow-300 to-white w-32 h-32 rounded-full ml-20 " /></ParallaxLayer>
-        <ParallaxLayer offset={0.2} speed={-0.2} className="z-20"><div className="block float-right bg-gradient-to-bl from-blue-900 to-blue-400 w-20 h-20 rounded-full mr-72" /></ParallaxLayer>
+        <ParallaxLayer offset={0.2} speed={-0.2} className="z-20 pointer-events-none"><div className="block float-right bg-gradient-to-bl from-blue-900 to-blue-400 w-20 h-20 rounded-full mr-72" /></ParallaxLayer>
         <ParallaxLayer offset={0.75} speed={0.4}><div className="block float-right bg-gradient-to-tl from-red-700 to-yellow-400 w-40 h-40 rounded-full mr-20" /></ParallaxLayer>
         <ParallaxLayer offset={0.8} speed={0.2}><div className="block bg-gradient-to-br from-purple-800 to-black w-28 h-28 rounded-full ml-10" /></ParallaxLayer>
 
@@ -33,7 +33,7 @@ const Homepage = () => {
 
         <ParallaxLayer offset={1} speed={0.4}><div className="block float-right bg-gradient-to-tr from-red-700 via-blue-700 to-white w-36 h-36 rounded-full mr-32" /></ParallaxLayer>
         <ParallaxLayer offset={1.15} speed={0.6}><div className="block bg-gradient-to-bl from-green-900 to-green-300 w-28 h-28 rounded-full ml-12" /></ParallaxLayer>
-        <ParallaxLayer offset={1.65} speed={-0.2} className="z-20"><div className="block bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-16" /></ParallaxLayer>
+        <ParallaxLayer offset={1.65} speed={-0.2} className="z-20 pointer-events-none"><div className="block bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-16" /></ParallaxLayer>
         <ParallaxLayer offset={1.9} speed={0.9}><div className="block float-right bg-gradient-to-br from-yellow-300 to-green-300 w-28 h-28 rounded-full mr-72" /></ParallaxLayer>
 
         <ParallaxLayer 

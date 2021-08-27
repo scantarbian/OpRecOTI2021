@@ -11,9 +11,9 @@ import Benefit4 from "../assets/svg/benefits/four.svg"
 
 const Core = ({ children }) => {
   return (
-    <div className="flex flex-col space-y-6 text-center items-center p-16 rounded-3xl
-      border-2 text-white
-      backdrop-filter backdrop-blur-lg bg-opacity-25 bg-black">
+    <div className="flex flex-col space-y-6 text-center items-center p-8 rounded-3xl mx-24 text-white
+      border-2 
+      backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black ">
       {children}
     </div>
   )
@@ -157,8 +157,8 @@ export const Faq = () => {
               <button 
                 key={`question-${index}`} 
                 value={index} 
-                className={`cursor-pointer text-left p-2 border-b-2 border-transparent hover:border-yellow-600 
-                ${selected === index ? 'font-bold border-yellow-600' : null }`}
+                className={`cursor-pointer text-left p-2 border-b-2 border-transparent hover:border-yellow-400 
+                ${selected === index ? 'font-bold border-yellow-400' : null }`}
                 onClick={(e) => {setSelected(index); console.log(selected)}}
               >
                 {faq.q}
@@ -187,7 +187,7 @@ export const ReadyToJoinUs = () => {
     <Core>
       <h2 className="font-black text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400">READY TO JOIN US?</h2>
-      <div className="flex space-x-4 items-center py-8">
+      <div className="flex space-x-4 items-center py-4">
         <StaticImage src="../assets/image/divisi-oti/datsci.png" alt="Data Science" className="w-12"/>
         <StaticImage src="../assets/image/divisi-oti/webdes.png" alt="Web Design" className="w-12"/>
         <StaticImage src="../assets/image/divisi-oti/webdev.png" alt="Web Development" className="w-12"/>
@@ -200,9 +200,12 @@ export const ReadyToJoinUs = () => {
       <p className="font-semibold text-center text-lg"> 
         Jangan lupa untuk <span className="text-yellow-400">submit</span> tugasmu sebelum <span className="text-yellow-400">deadline</span>!
       </p>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+      <a href="https://s.id/OprecMAKOMTI2021" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl" target="_blank" rel="noopener noreferrer">
+        <span>Daftar</span>
+      </a>
+      {/* <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
         Daftar
-      </Link>
+      </Link> */}
     </Core>
   )
 }

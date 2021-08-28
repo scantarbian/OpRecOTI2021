@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: theme => ({
         'omahti': "url('background.png')"
       }),
+      colors:{
+        'figma-omahti': '#090427',
+      }
     }
   },
   variants: {

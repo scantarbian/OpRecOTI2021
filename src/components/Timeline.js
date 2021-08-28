@@ -310,7 +310,11 @@ const TimelineGraphic = ({ title, date, color, left, children }) => {
         )}
       </div>
       <motion.div
-        className={`absolute ${isTabletOrMobile ? "w-20" : "w-40"}`}
+        // className={`absolute ${isTabletOrMobile ? "w-20" : "w-40"}`}
+        style={{
+          position: "absolute",
+          width: "10vw",
+        }}
         initial="hidden"
         animate={animate}
         variants={{

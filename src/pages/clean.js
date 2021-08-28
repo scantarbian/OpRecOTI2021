@@ -1,6 +1,7 @@
 import * as React from "react"
 import Footer from '../components/Footer'
-import { Welcome, About, WhatWeDo, ReadyToJoinUs, Timeline, Benefits, Faq } from '../components/Cards'
+import { Timeline } from "../components/Timeline"
+import { Welcome, About, WhatWeDo, ReadyToJoinUs, Benefits, Faq } from '../components/Cards'
 
 const HomepageAlt = () => {
   return (
@@ -40,7 +41,7 @@ const HomepageAlt = () => {
         <div className="absolute bg-gradient-to-bl from-yellow-700 via-yellow-300 to-yellow-700 w-24 h-24 rounded-full ml-52 z-20" style={{top: '496%'}}/>
         <div className="absolute right-0 bg-gradient-to-tr from-blue-600 to-green-400 w-12 h-12 rounded-full mr-72 z-20" style={{top: '576%'}}/>
         <div className="absolute bg-gradient-to-br from-green-500 to-pink-400 w-40 h-40 rounded-full ml-20" style={{top: '562%'}}/> 
-        
+
         <div className="absolute right-0 bg-gradient-to-tl from-purple-400 to-pink-300 w-32 h-32 rounded-full mr-8" style={{top: '622%'}}/>
         <div className="absolute bg-gradient-to-bl from-blue-600 to-pink-300 w-20 h-20 rounded-full ml-56 z-20" style={{top: '646%'}}/>
       </main>

@@ -44,10 +44,10 @@ const Button = ({ children, target }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-8 px-24 text-white flex flex-col space-y-4">
+    <footer className="bg-black py-8 px-4 lg:px-24 2xl:px-48 text-white flex flex-col space-y-4 text-center lg:text-left">
       <span className="text-3xl font-bold">OmahTI UGM | Himakom UGM</span>
       <span>Gedung Fakultas MIPA UGM Sekip Utara, <br />Bulaksumur, Sinduadi, Mlati, Sleman, DI Yogyakarta</span>   
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col lg:flex-row lg:justify-between items-center space-y-2 lg:space-y-0">
         <span>Copyright 2021 <b>OmahTI UGM</b></span>
         <div className="flex space-x-2">
           {socialMedias.map(({ icon, target }) => (

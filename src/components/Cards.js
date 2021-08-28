@@ -27,9 +27,10 @@ const Core = ({ children }) => {
       onMouseMove={(e) => {
         set(calc(e.clientX, e.clientY));
       }}
-      className="flex flex-col space-y-6 text-center items-center p-8
-      rounded-3xl mx-24 text-white border-2 z-10 backdrop-filter backdrop-blur-xl
-      bg-opacity-30 bg-black "
+      className="flex flex-col space-y-6 text-center items-center p-8 
+      rounded-3xl  text-white border-2 z-10 backdrop-filter backdrop-blur-xl
+      bg-opacity-30 bg-black
+      mx-4 lg:mx-24 2xl:mx-48"
     >
       {children}
     </animated.div>
@@ -91,7 +92,7 @@ export const Welcome = () => {
         className="w-32 z-50"
       />
       <h1
-        className="font-black text-6xl leading-tight
+        className="font-black text-4xl lg:text-6xl leading-tight
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 "
       >
         Open <br />
@@ -124,7 +125,7 @@ export const WhatWeDo = () => {
   return (
     <Core>
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400"
       >
         WHAT WE DO?
@@ -134,21 +135,21 @@ export const WhatWeDo = () => {
         melalui program kerja yang pastinya seru banget! Penasaran? Gabung
         makanya!
       </p>
-      <div className="flex space-x-4 items-center">
+      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4 items-center">
         <StaticImage
           src="../assets/image/kegiatan/1.jpg"
           alt="Foto Kegiatan OmahTI UGM"
-          className="w-1/3 rounded-xl"
+          className="lg:w-1/3 rounded-xl"
         />
         <StaticImage
           src="../assets/image/kegiatan/2.jpg"
           alt="Foto Kegiatan OmahTI UGM"
-          className="w-1/3 rounded-xl"
+          className="lg:w-1/3 rounded-xl"
         />
         <StaticImage
           src="../assets/image/kegiatan/3.jpg"
           alt="Foto Kegiatan OmahTI UGM"
-          className="w-1/3 rounded-xl"
+          className="lg:w-1/3 rounded-xl"
         />
       </div>
     </Core>
@@ -159,7 +160,7 @@ export const About = () => {
   return (
     <Core>
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400"
       >
         ABOUT OMAHTI
@@ -179,16 +180,16 @@ export const Benefits = () => {
   return (
     <Core>
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400"
       >
         BENEFITS
       </h2>
-      <div className="flex space-x-4">
+      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4">
         {benefitsList.map((benefit, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-1/4 space-y-8"
+            className="flex flex-col items-center lg:w-1/4 space-y-8"
           >
             {benefit.icon}
             <p className="text-center">{benefit.text}</p>
@@ -205,7 +206,7 @@ export const Faq = () => {
   return (
     <Core>
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400"
       >
         FREQUENTLY ASKED QUESTIONS
@@ -254,7 +255,7 @@ export const ReadyToJoinUs = () => {
   return (
     <Core>
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
       text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400"
       >
         READY TO JOIN US?
@@ -263,42 +264,42 @@ export const ReadyToJoinUs = () => {
         <StaticImage
           src="../assets/image/divisi-oti/datsci.png"
           alt="Data Science"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/webdes.png"
           alt="Web Design"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/webdev.png"
           alt="Web Development"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/cp.png"
           alt="Competitive Programming"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/cysec.png"
           alt="Cyber Security"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/uix.png"
           alt="User Interface / User Experience"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/gamedev.png"
           alt="Game Development"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
         <StaticImage
           src="../assets/image/divisi-oti/ma.png"
           alt="Mobile Apps"
-          className="w-12"
+          className="w-4 lg:w-12"
         />
       </div>
       <p className="font-semibold text-center text-lg">

@@ -86,7 +86,7 @@ export const Timeline = () => {
   return (
     <div className="flex flex-col items-center px-16">
       <h1
-        className="font-black text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none text-center
       text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400"
       >
         RECRUITMENT TIMELINE

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
+    "@loadable/component": "^5.15.0",
     "@react-spring/parallax": "^9.2.4",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.11.1",

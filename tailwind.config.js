@@ -9,12 +9,11 @@ module.exports = {
       colors:{
         'figma-omahti': '#090427',
       }
-    }
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    require('tailwindcss-border-gradients')
   ],
 }

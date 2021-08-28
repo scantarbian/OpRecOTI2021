@@ -28,9 +28,9 @@ const Core = ({ children }) => {
       onMouseMove={(e) => {
         set(calc(e.clientX, e.clientY));
       }}
-      className="flex flex-col space-y-6 text-center items-center p-8 
-      rounded-3xl  text-white border-2 z-10 backdrop-filter backdrop-blur-xl
-      bg-opacity-30 bg-black
+      className="flex flex-col space-y-6 text-center items-center p-8
+      text-white z-10 backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black
+      rounded-3xl
       mx-4 lg:mx-24 2xl:mx-48"
     >
       {children}

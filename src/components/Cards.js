@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated, config } from "@react-spring/web";
 
 import Benefit1 from "../assets/svg/benefits/one.svg";
 import Benefit2 from "../assets/svg/benefits/two.svg";
@@ -10,19 +10,19 @@ import Benefit3 from "../assets/svg/benefits/three.svg";
 import Benefit4 from "../assets/svg/benefits/four.svg";
 
 const Core = ({ children }) => {
-  const calc = (x, y, rect) => [
-    -(y - window.innerHeight / 2) / 35,
-    (x - window.innerWidth / 2) / 100,
+  const calc = (x, y) => [
+    -(y - window.innerHeight / 2) / 200,
+    (x - window.innerWidth / 2) / 400,
     1,
   ];
   const trans = (x, y, s) =>
     `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
   const CardRef = useRef(null);
   const [xys, set] = useState([0, 0, 1]);
-  const spring = useSpring({ xys, config: "wobbly" });
+  const spring = useSpring({ xys, config: config.wobbly });
   return (
     <animated.div
-      style={{ transform: spring.xys.interpolate(trans) }}
+      style={{ transform: spring.xys.to(trans) }}
       onMouseLeave={() => set([0, 0, 1])}
       onMouseMove={(e) => {
         set(calc(e.clientX, e.clientY));

@@ -10,7 +10,7 @@ import Benefit2 from "../assets/svg/benefits/two.svg";
 import Benefit3 from "../assets/svg/benefits/three.svg";
 import Benefit4 from "../assets/svg/benefits/four.svg";
 
-const Core = ({ children }) => {
+export const Core = ({ children }) => {
   const calc = (x, y) => [
     -(y - window.innerHeight / 2) / 200,
     (x - window.innerWidth / 2) / 400,

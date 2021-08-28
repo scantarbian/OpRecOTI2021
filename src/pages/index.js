@@ -7,7 +7,7 @@ import {
   WhatWeDo,
   ReadyToJoinUs,
   Benefits,
-  Faq,
+  FaqDropdown,
 } from "../components/Cards";
 import { motion } from "framer-motion";
 
@@ -29,16 +29,16 @@ const HomepageAlt = () => {
     },
   };
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-indigo-900 to-black">
+    <div className="bg-gradient-to-b from-blue-900 via-indigo-900 to-black overflow overflow-x-hidden">
       <title>Open Recruitment OmahTI 2021</title>
-      <main className="static bg-omahti bg-no-repeat bg-cover bg-center">
+      <main className="static bg-omahti bg-no-repeat bg-cover bg-center ">
         <div className="flex flex-col pt-16 space-y-32 ">
           <Welcome />
           <WhatWeDo />
           <Timeline />
           <About />
           <Benefits />
-          <Faq />
+          <FaqDropdown />
           <ReadyToJoinUs />
           <Footer />
         </div>

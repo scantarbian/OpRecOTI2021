@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { useSpring, animated, config } from "@react-spring/web";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid"
 
 import Benefit1 from "../assets/svg/benefits/one.svg";
 import Benefit2 from "../assets/svg/benefits/two.svg";
@@ -200,6 +201,47 @@ export const Benefits = () => {
   );
 };
 
+export const Dropdown = ({question, answer}) => {
+  const [isOpen, setOpen] = useState(false);
+
+  return (
+    <div className={`flex flex-col ${isOpen && "border-b-2 border-yellow-400"}`}>
+      <button className={`flex justify-between px-4 py-2 text-2xl font-bold items-center hover:text-yellow-400
+      ${isOpen && "text-yellow-400"}`}
+        onClick={() => setOpen(!isOpen)}
+      >
+        {question}
+        {isOpen ? <ChevronUpIcon className="w-8" /> : <ChevronDownIcon className="w-8"/>}
+      </button>
+      {isOpen && (
+        <div className={`text-left px-4 py-2 text-xl`}>
+          {answer}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export const FaqDropdown = () => {
+  return (
+    <Core>
+      <h2
+          className="font-black text-3xl lg:text-5xl leading-none
+        text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400"
+        >
+          FREQUENTLY ASKED QUESTIONS
+      </h2>
+      <div className="flex flex-col space-y-2 w-full">
+        {
+          faqList.map((faq, index) => (
+            <Dropdown key={index} question={faq.q} answer={faq.a} />
+          ))
+        }
+      </div>
+    </Core>
+  )
+}
+
 export const Faq = () => {
   const [selected, setSelected] = useState(0);
 
@@ -219,9 +261,8 @@ export const Faq = () => {
               value={index}
               className={`cursor-pointer text-left p-2 border-b-2 border-transparent hover:border-yellow-400
                 ${selected === index ? "font-bold border-yellow-400" : null}`}
-              onClick={(e) => {
+              onClick={() => {
                 setSelected(index);
-                console.log(selected);
               }}
             >
               {faq.q}

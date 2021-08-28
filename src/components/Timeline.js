@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";

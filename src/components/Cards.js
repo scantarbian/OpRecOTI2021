@@ -136,7 +136,7 @@ export const WhatWeDo = () => {
         melalui program kerja yang pastinya seru banget! Penasaran? Gabung
         makanya!
       </p>
-      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4 items-center">
+      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4 lg:space-y-0 items-center">
         <StaticImage
           src="../assets/image/kegiatan/1.jpg"
           alt="Foto Kegiatan OmahTI UGM"
@@ -159,9 +159,9 @@ export const WhatWeDo = () => {
 
 export const Timeline = () => {
   return (
-    <div className="flex flex-col items-center px-16">
+    <div className="flex flex-col items-center mx-4 lg:mx-24 2xl:mx-48 z-10">
       <h2
-        className="font-black text-5xl leading-none
+        className="font-black text-5xl leading-none text-center
       text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400"
       >
         RECRUITMENT TIMELINE
@@ -169,7 +169,7 @@ export const Timeline = () => {
       <StaticImage
         src="../assets/image/timeline.png"
         alt="Timeline Open Recruitment OmahTI UGM"
-        className="w-2/3"
+        className="w-full lg:w-2/3"
       />
     </div>
   );
@@ -204,7 +204,7 @@ export const Benefits = () => {
       >
         BENEFITS
       </h2>
-      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4">
+      <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-4 lg:space-y-0">
         {benefitsList.map((benefit, index) => (
           <div
             key={index}
@@ -224,7 +224,7 @@ export const Dropdown = ({question, answer}) => {
 
   return (
     <div className={`flex flex-col ${isOpen && "border-b-2 border-yellow-400"}`}>
-      <button className={`flex justify-between px-4 py-2 text-2xl font-bold items-center hover:text-yellow-400
+      <button className={`flex justify-between px-4 py-2 text-2xl font-bold items-center text-left hover:text-yellow-400
       ${isOpen && "text-yellow-400"}`}
         onClick={() => setOpen(!isOpen)}
       >

@@ -30,9 +30,9 @@ const HomepageAlt = () => {
     },
   };
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-indigo-900 to-black overflow overflow-x-hidden">
+    <div className="bg-gradient-to-b from-blue-900 via-indigo-900 to-black w-full overflow-hidden">
       <title>Open Recruitment OmahTI 2021</title>
-      <main className="static bg-omahti bg-no-repeat bg-cover bg-center ">
+      <main className="static bg-omahti bg-no-repeat bg-cover bg-center">
         <div className="flex flex-col pt-16 space-y-32 ">
           <Welcome />
           <WhatWeDo />
@@ -68,7 +68,7 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute right-0 bg-gradient-to-bl from-blue-900 to-blue-400 w-20 h-20 rounded-full mr-96 z-20"
+          className="absolute right-0 bg-gradient-to-bl from-blue-900 to-blue-400 w-20 h-20 rounded-full mr-96 lg:z-20"
           style={{ top: "8rem" }}
         />
         <motion.div
@@ -159,8 +159,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-14 z-20"
-          style={{ top: "65rem" }}
+          className="absolute bg-gradient-to-tr from-yellow-300 via-red-700 to-black w-32 h-32 rounded-full ml-14 lg:z-20"
+          style={{ top: "62rem" }}
         />
         <motion.div
           variants={{
@@ -178,7 +178,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute right-0 bg-gradient-to-br from-yellow-300 to-green-300 w-28 h-28 rounded-full mr-72"
-          style={{ top: "66rem" }}
+          style={{ top: "64rem" }}
         />
 
         <motion.div
@@ -197,7 +197,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute right-0 bg-gradient-to-tr from-red-700 to-red-400 w-20 h-20 rounded-full mr-44"
-          style={{ top: "96rem" }}
+          style={{ top: "88rem" }}
         />
         <motion.div
           variants={{
@@ -211,7 +211,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute bg-gradient-to-tr from-purple-700 via-blue-700 to-white w-52 h-52 rounded-full ml-12"
-          style={{ top: "120rem" }}
+          style={{ top: "100rem" }}
         />
 
         <motion.div
@@ -229,8 +229,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute bg-gradient-to-br from-yellow-600 to-yellow-300 w-32 h-32 rounded-full ml-72 z-20"
-          style={{ top: "157rem" }}
+          className="absolute bg-gradient-to-br from-yellow-600 to-yellow-300 w-32 h-32 rounded-full ml-72 lg:z-20"
+          style={{ top: "132rem" }}
         />
         <motion.div
           variants={{
@@ -248,7 +248,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute right-0 bg-gradient-to-bl from-blue-600 to-yellow-300 w-48 h-48 rounded-full mr-6"
-          style={{ top: "167rem" }}
+          style={{ top: "142rem" }}
         />
 
         <motion.div
@@ -267,7 +267,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute bg-gradient-to-tr from-blue-600 via-pink-300 to-white w-56 h-56 rounded-full ml-2"
-          style={{ top: "178rem" }}
+          style={{ top: "148rem" }}
         />
         <motion.div
           variants={{
@@ -284,8 +284,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute right-0 bg-gradient-to-tl from-red-900 to-red-400 w-16 h-16 rounded-full mr-96 z-20"
-          style={{ top: "182rem" }}
+          className="absolute right-0 bg-gradient-to-tl from-red-900 to-red-400 w-16 h-16 rounded-full mr-96 lg:z-20"
+          style={{ top: "158rem" }}
         />
         <motion.div
           variants={{
@@ -303,7 +303,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute right-0 bg-gradient-to-tr from-green-400 to-green-700 w-28 h-28 rounded-full mr-20"
-          style={{ top: "208rem" }}
+          style={{ top: "182rem" }}
         />
 
         <motion.div
@@ -321,8 +321,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute bg-gradient-to-bl from-yellow-700 via-yellow-300 to-yellow-700 w-24 h-24 rounded-full ml-52 z-20"
-          style={{ top: "218rem" }}
+          className="absolute bg-gradient-to-bl from-yellow-700 via-yellow-300 to-yellow-700 w-24 h-24 rounded-full ml-52 lg:z-20"
+          style={{ top: "188rem" }}
         />
         <motion.div
           variants={{
@@ -339,8 +339,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute right-0 bg-gradient-to-tr from-blue-600 to-green-400 w-12 h-12 rounded-full mr-72 z-20"
-          style={{ top: "249rem" }}
+          className="absolute right-0 bg-gradient-to-tr from-blue-600 to-green-400 w-12 h-12 rounded-full mr-72 lg:z-20"
+          style={{ top: "236rem" }}
         />
         <motion.div
           variants={{
@@ -357,8 +357,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute bg-gradient-to-br from-green-500 to-pink-400 w-40 h-40 rounded-full ml-20"
-          style={{ top: "244rem" }}
+          className="absolute bg-gradient-to-br from-green-500 to-pink-400 w-40 h-40 rounded-full lg:ml-20"
+          style={{ top: "231rem" }}
         />
 
         <motion.div
@@ -377,7 +377,7 @@ const HomepageAlt = () => {
           initial="hidden"
           animate="animate"
           className="absolute right-0 bg-gradient-to-tl from-purple-400 to-pink-300 w-32 h-32 rounded-full mr-8"
-          style={{ top: "264rem" }}
+          style={{ top: "250rem" }}
         />
         <motion.div
           variants={{
@@ -394,8 +394,8 @@ const HomepageAlt = () => {
           }}
           initial="hidden"
           animate="animate"
-          className="absolute bg-gradient-to-bl from-blue-600 to-pink-300 w-20 h-20 rounded-full ml-56 z-20"
-          style={{ top: "282rem" }}
+          className="absolute bg-gradient-to-bl from-blue-600 to-pink-300 w-20 h-20 rounded-full ml-56 lg:z-20"
+          style={{ top: "254rem" }}
         />
       </main>
     </div>

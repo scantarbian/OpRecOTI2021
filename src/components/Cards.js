@@ -76,7 +76,7 @@ const faqList = [
   },
   {
     q: "Siapa aja yang boleh daftar OmahTI 2021?",
-    a: "Setiap mahasiswa ilmu komputer UGM angkatan 2019 dan 2020 yang berkeinginan untuk mendaftar",
+    a: "Setiap mahasiswa ilmu komputer UGM angkatan 2020 dan 2021 yang berkeinginan untuk mendaftar",
   },
   {
     q: "Apakah nantinya saya bisa kalah saing dengan angkatan atas yang mencoba di tahun kedua?",

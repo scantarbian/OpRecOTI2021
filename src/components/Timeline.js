@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { useInView } from "react-intersection-observer";
-import { useMediaQuery } from "react-responsive";
+import loadable from "@loadable/component";
+
+const { useMediaQuery } = loadable.lib(() => import("react-responsive"));
 
 const TimelineData = [
   {
@@ -45,6 +46,10 @@ const TimelineData = [
 ];
 
 export const Timeline = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const data = useStaticQuery(graphql`
     query {
       Image1: file(relativePath: { eq: "image/timeline-icons/image1.png" }) {
@@ -99,6 +104,8 @@ export const Timeline = () => {
           date={item.date}
           color={item.color}
           left={item.left}
+          isDesktopOrLaptop={isDesktopOrLaptop}
+          isTabletOrMobile={isTabletOrMobile}
         >
           <Img
             fluid={data[item.image].childImageSharp.fluid}
@@ -110,15 +117,25 @@ export const Timeline = () => {
   );
 };
 
-const TimelineGraphic = ({ title, date, color, left, children }) => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  });
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+const TimelineGraphic = ({
+  title,
+  date,
+  color,
+  left,
+  children,
+  isDesktopOrLaptop,
+  isTabletOrMobile,
+}) => {
   const [iconRef, inView] = useInView({
     triggerOnce: true,
     rootMargin: "-15%",
   });
+
+  if (isTabletOrMobile) {
+    console.log("tablet");
+  } else {
+    console.log("desktop");
+  }
 
   const animate = useAnimation();
 

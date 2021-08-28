@@ -156,6 +156,24 @@ export const WhatWeDo = () => {
   );
 };
 
+export const Timeline = () => {
+  return (
+    <div className="flex flex-col items-center px-16">
+      <h2
+        className="font-black text-5xl leading-none
+      text-transparent bg-clip-text bg-gradient-to-bl from-white to-purple-400"
+      >
+        RECRUITMENT TIMELINE
+      </h2>
+      <StaticImage
+        src="../assets/image/timeline.png"
+        alt="Timeline Open Recruitment OmahTI UGM"
+        className="w-2/3"
+      />
+    </div>
+  );
+};
+
 export const About = () => {
   return (
     <Core>

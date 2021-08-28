@@ -1,12 +1,13 @@
 import * as React from "react";
 import Footer from "../components/Footer";
-import { Timeline } from "../components/Timeline";
+// import { Timeline } from "../components/Timeline";
 import {
   Welcome,
   About,
   WhatWeDo,
   ReadyToJoinUs,
   Benefits,
+  Timeline,
   Faq,
 } from "../components/Cards";
 import { motion } from "framer-motion";

@@ -107,9 +107,19 @@ export const Welcome = () => {
         </p>
         <span className="text-yellow-400">Join OmahTI!</span>
       </div>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
-        Daftar
-      </Link>
+      <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
+        <a
+          href="https://s.id/OprecMAKOMTI2021"
+          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Daftar</span>
+        </a> 
+        <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+          Tugas
+        </Link>
+      </div>
     </Core>
   );
 };
@@ -357,9 +367,19 @@ export const ReadyToJoinUs = () => {
         Jangan lupa untuk <span className="text-yellow-400">submit</span>{" "}
         tugasmu sebelum <span className="text-yellow-400">deadline</span>!
       </p>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
-        Daftar
-      </Link>
+      <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
+        <a
+          href="https://s.id/OprecMAKOMTI2021"
+          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Daftar</span>
+        </a> 
+        <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+          Tugas
+        </Link>
+      </div>
     </Core>
   );
 };

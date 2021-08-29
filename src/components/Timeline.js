@@ -1,46 +1,42 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { useInView } from "react-intersection-observer";
-import loadable from "@loadable/component";
-
-const { useMediaQuery } = loadable.lib(() => import("react-responsive"));
+import { useMediaQuery } from "react-responsive";
 
 const TimelineData = [
   {
     title: "Publish Soal",
     date: "1 September 2021",
     color: "#28DBAD",
-    image: "Image1",
+    image: "image1",
     left: false,
   },
   {
     title: "Pengerjaan Tugas",
     date: "2-12 Spetember 2021",
     color: "#4524D2",
-    image: "Image2",
+    image: "image2",
     left: true,
   },
   {
     title: "Wawancara",
     date: "10-15 September 2021",
     color: "#A5A6F6",
-    image: "Image3",
+    image: "image3",
     left: false,
   },
   {
     title: "Pengumuman",
     date: "24 September 2021",
     color: "#A044E3",
-    image: "Image4",
+    image: "image4",
     left: true,
   },
   {
     title: "First Gathering",
     date: "2 Oktober 2021",
     color: "#FC69D0",
-    image: "Image5",
+    image: "image5",
     left: false,
   },
 ];
@@ -50,45 +46,6 @@ export const Timeline = () => {
     query: "(min-width: 1224px)",
   });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
-  const data = useStaticQuery(graphql`
-    query {
-      Image1: file(relativePath: { eq: "image/timeline-icons/image1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 175) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      Image2: file(relativePath: { eq: "image/timeline-icons/image2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 175) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      Image3: file(relativePath: { eq: "image/timeline-icons/image3.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 175) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      Image4: file(relativePath: { eq: "image/timeline-icons/image4.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 175) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      Image5: file(relativePath: { eq: "image/timeline-icons/image5.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 175) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
   return (
     <div className="flex flex-col items-center px-16">
       <h1
@@ -107,10 +64,7 @@ export const Timeline = () => {
           isDesktopOrLaptop={isDesktopOrLaptop}
           isTabletOrMobile={isTabletOrMobile}
         >
-          <Img
-            fluid={data[item.image].childImageSharp.fluid}
-            alt="icon timeline"
-          />
+          <img src={`/timeline-icons/${item.image}.png`} />
         </TimelineGraphic>
       ))}
     </div>
@@ -341,7 +295,7 @@ const TimelineGraphic = ({
           },
           visible: {
             opacity: 1,
-            y: isTabletOrMobile ? 40 : 80,
+            y: isTabletOrMobile ? 40 : 90,
             transition: {
               duration: 1,
               delay: 1,

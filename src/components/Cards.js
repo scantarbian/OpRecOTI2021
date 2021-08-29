@@ -1,16 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { useSpring, animated, config } from "@react-spring/web";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid"
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid";
 
 import Benefit1 from "../assets/svg/benefits/one.svg";
 import Benefit2 from "../assets/svg/benefits/two.svg";
 import Benefit3 from "../assets/svg/benefits/three.svg";
 import Benefit4 from "../assets/svg/benefits/four.svg";
 
-const Core = ({ children }) => {
+export const Core = ({ children, className, noAni }) => (
+  <BaseCore
+    className={`flex flex-col space-y-6 text-center items-center mx-4 lg:mx-24 2xl:mx-48 p-8 z-10 ${className}`}
+    noAni={noAni}
+  >
+    {children}
+  </BaseCore>
+);
+
+export const BaseCore = ({ children, className, noAni, onClick }) => {
   const calc = (x, y) => [
     -(y - window.innerHeight / 2) / 200,
     (x - window.innerWidth / 2) / 400,
@@ -18,20 +27,24 @@ const Core = ({ children }) => {
   ];
   const trans = (x, y, s) =>
     `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-  const CardRef = useRef(null);
   const [xys, set] = useState([0, 0, 1]);
   const spring = useSpring({ xys, config: config.wobbly });
   return (
     <animated.div
-      style={{ transform: spring.xys.to(trans) }}
-      onMouseLeave={() => set([0, 0, 1])}
-      onMouseMove={(e) => {
-        set(calc(e.clientX, e.clientY));
-      }}
-      className="flex flex-col space-y-6 text-center items-center p-8
-      text-white z-10 backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black
+      onClick={onClick}
+      style={{ transform: noAni || spring.xys.to(trans) }}
+      onMouseLeave={noAni ? () => {} : () => set([0, 0, 1])}
+      onMouseMove={
+        noAni
+          ? () => {}
+          : (e) => {
+              set(calc(e.clientX, e.clientY));
+            }
+      }
+      className={`
+      text-white backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black
       rounded-3xl
-      mx-4 lg:mx-24 2xl:mx-48"
+      ${className}`}
     >
       {children}
     </animated.div>
@@ -107,7 +120,10 @@ export const Welcome = () => {
         </p>
         <span className="text-yellow-400">Join OmahTI!</span>
       </div>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+      <Link
+        to="/daftar"
+        className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+      >
         Daftar
       </Link>
     </Core>
@@ -211,46 +227,47 @@ export const Benefits = () => {
   );
 };
 
-export const Dropdown = ({question, answer}) => {
+export const Dropdown = ({ question, answer }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className={`flex flex-col ${isOpen && "border-b-2 border-yellow-400"}`}>
-      <button className={`flex justify-between px-4 py-2 text-2xl font-bold items-center text-left hover:text-yellow-400
+    <div
+      className={`flex flex-col ${isOpen && "border-b-2 border-yellow-400"}`}
+    >
+      <button
+        className={`flex justify-between px-4 py-2 text-2xl font-bold items-center text-left hover:text-yellow-400
       ${isOpen && "text-yellow-400"}`}
         onClick={() => setOpen(!isOpen)}
       >
         {question}
-        {isOpen ? <ChevronUpIcon className="w-8" /> : <ChevronDownIcon className="w-8"/>}
+        {isOpen ? (
+          <ChevronUpIcon className="w-8" />
+        ) : (
+          <ChevronDownIcon className="w-8" />
+        )}
       </button>
-      {isOpen && (
-        <div className={`text-left px-4 py-2 text-xl`}>
-          {answer}
-        </div>
-      )}
+      {isOpen && <div className={`text-left px-4 py-2 text-xl`}>{answer}</div>}
     </div>
-  )
-}
+  );
+};
 
 export const FaqDropdown = () => {
   return (
     <Core>
       <h2
-          className="font-black text-3xl lg:text-5xl leading-none
+        className="font-black text-3xl lg:text-5xl leading-none
         text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400"
-        >
-          FREQUENTLY ASKED QUESTIONS
+      >
+        FREQUENTLY ASKED QUESTIONS
       </h2>
       <div className="flex flex-col space-y-2 w-full">
-        {
-          faqList.map((faq, index) => (
-            <Dropdown key={index} question={faq.q} answer={faq.a} />
-          ))
-        }
+        {faqList.map((faq, index) => (
+          <Dropdown key={index} question={faq.q} answer={faq.a} />
+        ))}
       </div>
     </Core>
-  )
-}
+  );
+};
 
 export const Faq = () => {
   const [selected, setSelected] = useState(0);
@@ -357,7 +374,10 @@ export const ReadyToJoinUs = () => {
         Jangan lupa untuk <span className="text-yellow-400">submit</span>{" "}
         tugasmu sebelum <span className="text-yellow-400">deadline</span>!
       </p>
-      <Link to="/daftar" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl">
+      <Link
+        to="/daftar"
+        className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+      >
         Daftar
       </Link>
     </Core>

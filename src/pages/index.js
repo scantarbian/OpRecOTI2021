@@ -29,7 +29,7 @@ const Homepage = () => {
       },
     },
   };
-  
+
   return (
     <div className="bg-figma-omahti w-full overflow-hidden">
       <title>Open Recruitment OmahTI 2021</title>

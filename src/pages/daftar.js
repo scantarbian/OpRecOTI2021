@@ -1,10 +1,10 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
-import { BaseCore } from "../components/Cards";
+import { BaseCore, Core } from "../components/Cards";
 import { motion } from "framer-motion";
 
-const division = [
+const divisionList = [
   {
     logo: "webdev.png",
     name: "Web Development",
@@ -26,6 +26,10 @@ const division = [
     name: "Mobile Apps",
   },
   {
+    logo: "webdes.png",
+    name: "Web Design",
+  },
+  {
     logo: "cysec.png",
     name: "Cyber Security",
   },
@@ -36,23 +40,24 @@ const division = [
 ];
 
 const Daftar = () => {
+  const [division, setDivision] = useState(null);
   return (
-    <div className="bg-figma-omahti w-full">
+    <div className="bg-figma-omahti">
       <title>Pendaftaran OmahTI 2021</title>
       <main className="static bg-omahti bg-no-repeat bg-cover bg-center">
-        <div className="flex flex-col items-center pt-16 space-y-4 pb-12">
+        <div className="flex flex-col items-center pt-16 space-y-4">
           <h1
             className="font-black text-4xl lg:text-8xl leading-tight
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 "
           >
             PENUGASAN
           </h1>
-          {division.map((d) => (
-            <Divisi name={d.name} logo={d.logo} />
+          {divisionList.map((d) => (
+            <DivisiMobile name={d.name} logo={d.logo} />
           ))}
-          <BaseCore className="hidden lg:flex gap-x-5 lg:gap-x-16 items-center lg:pr-32 py-4 px-2 lg:p-8 sm:p-2 ">
+          <BaseCore className="hidden xl:flex gap-x-5 lg:gap-x-16 items-center 2xl:pr-32 py-4 px-2 2xl:p-8 sm:p-2 ">
             <div
-              className="font-bold text-xl leading-tight text-left w-32 lg:w-52 font-black text-xl lg:text-5xl leading-tight
+              className="font-bold text-xl leading-tight text-left w-32 2xl:w-52 font-black text-xl lg:text-5xl leading-tight
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 hidden lg:block "
             >
               <p>
@@ -61,81 +66,52 @@ const Daftar = () => {
                 Divisi
               </p>
             </div>
-            <StaticImage
-              src="../assets/image/divisi-oti/cp.png"
-              alt="Competitive Programming"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/webdev.png"
-              alt="Web Development"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/datsci.png"
-              alt="Data Science"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/uix.png"
-              alt="User Interface / User Experience"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/ma.png"
-              alt="Mobile Apps"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/webdes.png"
-              alt="Web Design"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/cysec.png"
-              alt="Cyber Security"
-              className="w-6 lg:w-16"
-            />
-            <StaticImage
-              src="../assets/image/divisi-oti/gamedev.png"
-              alt="Game Development"
-              className="w-6 lg:w-16"
-            />
+            {divisionList.map((d) => (
+              <img
+                src={`/divisi-oti/${d.logo}`}
+                alt={d.name}
+                className="w-10 2xl:w-16"
+                onClick={() => setDivision(d.name)}
+              />
+            ))}
           </BaseCore>
-          {/* <Core noAni>
-            <iframe
-              src={"/pdf/sample.pdf"}
-              width="700px"
-              height="700px"
-            ></iframe>
-          </Core> */}
-          <div className="flex flex-row flex-wrap justify-center lg:justify-between">
-            <div className="flex flex-col items-center lg:items-start">
+          {division && (
+            <Core noAni className="hidden xl:block">
+              <span className="text-xl font-bold">{division}</span>
+              <iframe
+                src={"/pdf/sample.pdf"}
+                width="700px"
+                height="700px"
+              ></iframe>
+            </Core>
+          )}
+          <div className="flex flex-row flex-wrap justify-center xl:justify-between">
+            <div className="flex flex-col items-center lg:items-start w-3/5">
               <h2
                 className="font-black text-5xl leading-tight
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left"
               >
                 Catatan Penugasan
               </h2>
-              <BaseCore className="mt-10 w-4/5 p-8">
+              <BaseCore className="mt-10 w-full p-8">
                 <span className="text-xl">
                   Penugasan dikerjakan dalam bentuk dokumen word dan dicompress
                   dalam bentuk zip
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-4/5 p-8">
+              <BaseCore className="mt-10 w-full p-8">
                 <span className="text-xl">
                   Maksimal pengumpulan tugas sebelum melakukan wawancara
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-4/5 p-8">
+              <BaseCore className="mt-10 w-full p-8">
                 <span className="text-xl">
                   Jika penugasan menggunakan platform lain seperti Hackerrank,
                   maka cukup melampirkan screenshot dan dimasukkan ke dalam
                   dokumen
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-4/5 p-8">
+              <BaseCore className="mt-10 w-full p-8">
                 <span className="text-xl">
                   Apabila terdapat coding silahkan disertakan dalam satu file
                   zip
@@ -177,31 +153,33 @@ const Daftar = () => {
   );
 };
 
-const Divisi = ({ logo, name }) => {
+const DivisiMobile = ({ logo, name }) => {
   const [expanded, setExpanded] = useState(null);
   return (
     <BaseCore
-      className="mt-10 w-4/5 p-8 flex flex-col gap-y-5 items-center lg:hidden h-auto"
+      className="mt-10 w-4/5 p-6 flex flex-col items-center xl:hidden h-auto"
       onClick={() => {
         setExpanded(expanded === name ? false : name);
         console.log(expanded);
       }}
     >
-      <div className="flex flex-row gap-x-2 w-full">
+      <div className="flex flex-row gap-x-5 w-full">
         <div className="w-7">
           <img src={`/divisi-oti/${logo}`} />
         </div>
         <span className="text-xl">{name}</span>
       </div>
-      <div>
-        <motion.a
-          href="/pdf/sample.pdf"
-          className="h-0 py-1.5 px-8 bg-blue-500 font-bold rounded-full text-xl"
-          animate={{ height: expanded === name ? "100%" : "0%" }}
+      <motion.div
+        className="grid items-center overflow-hidden"
+        animate={{ height: expanded === name ? "5rem" : "0" }}
+      >
+        <Link
+          to={`/pdf/sample.pdf`}
+          className="px-4 py-1.5 bg-blue-500 font-bold rounded-full text-lg"
         >
-          Daftar
-        </motion.a>
-      </div>
+          Tugas
+        </Link>
+      </motion.div>
     </BaseCore>
   );
 };

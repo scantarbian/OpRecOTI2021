@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import { BaseCore, Core } from "../components/Cards";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 const divisionList = [
   {
@@ -57,7 +58,7 @@ const Daftar = () => {
           ))}
           <BaseCore className="hidden xl:flex gap-x-5 lg:gap-x-16 items-center 2xl:pr-32 py-4 px-2 2xl:p-8 sm:p-2 ">
             <div
-              className="font-bold text-xl leading-tight text-left w-32 2xl:w-52 font-black text-xl lg:text-5xl leading-tight
+              className="font-bold text-xl leading-tight text-left w-32 2xl:w-52 lg:text-5xl
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 hidden lg:block "
             >
               <p>
@@ -126,7 +127,7 @@ const Daftar = () => {
                 Upload Tugas
               </h2>
               <div className="bg-white  flex px-8 py-5 rounded-3xl gap-x-6 mt-10">
-                <div className="flex flex-col hidden lg:block">
+                <div className="flex flex-col lg:block">
                   <div
                     className="text-black font-extrabold text-3xl"
                     style={{ fontFamily: "inter" }}
@@ -149,6 +150,7 @@ const Daftar = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

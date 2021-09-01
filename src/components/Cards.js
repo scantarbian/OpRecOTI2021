@@ -123,7 +123,9 @@ export const Welcome = () => {
       <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
         <a
           href="https://s.id/OprecMAKOMTI2021"
-          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl
+          transition duration-300 ease-in-out hover:bg-blue-600 focus:bg-blue-400
+          transform hover:scale-110 focus:scale-100"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -131,7 +133,9 @@ export const Welcome = () => {
         </a>
         <Link
           to="/daftar"
-          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
+          transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
+          transform hover:scale-110 focus:scale-100"
         >
           Tugas
         </Link>
@@ -250,11 +254,9 @@ export const Dropdown = ({ question, answer }) => {
         onClick={() => setOpen(!isOpen)}
       >
         {question}
-        {isOpen ? (
-          <ChevronUpIcon className="w-8" />
-        ) : (
-          <ChevronDownIcon className="w-8" />
-        )}
+        <ChevronDownIcon className={`w-8 ${
+          isOpen && "transition duration-200 ease-in-out transform rotate-180" || "transition duration-200 ease-in-out transform"
+        }`}/>
       </button>
       {isOpen && <div className={`text-left px-4 py-2 text-xl`}>{answer}</div>}
     </div>
@@ -387,7 +389,9 @@ export const ReadyToJoinUs = () => {
       <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
         <a
           href="https://s.id/OprecMAKOMTI2021"
-          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl
+          transition duration-300 ease-in-out hover:bg-blue-600 focus:bg-blue-400
+          transform hover:scale-110 focus:scale-100"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -395,7 +399,9 @@ export const ReadyToJoinUs = () => {
         </a>
         <Link
           to="/daftar"
-          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl"
+          className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
+          transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
+          transform hover:scale-110 focus:scale-100"
         >
           Tugas
         </Link>

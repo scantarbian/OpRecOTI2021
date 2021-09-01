@@ -9,34 +9,42 @@ const divisionList = [
   {
     logo: "webdev.png",
     name: "Web Development",
+    file: 'CHALLENGE WEBDEV.pdf'
   },
   {
     logo: "datsci.png",
     name: "Data Science",
+    file: 'Soal Data Science.pdf'
   },
   {
     logo: "cp.png",
     name: "Competitive Programming",
+    file: 'Penugasan Oprec CP 2021.pdf'
   },
   {
     logo: "uix.png",
     name: "UI/UX",
+    file: 'Soal UIUX 2021.pdf'
   },
   {
     logo: "ma.png",
     name: "Mobile Apps",
+    file: 'Penugasan Oprec Mobile Apps.pdf'
   },
   {
     logo: "webdes.png",
     name: "Web Design",
+    file: 'Penugasan Webdes.pdf'
   },
   {
     logo: "cysec.png",
     name: "Cyber Security",
+    file: 'Soal Cyber Security.pdf'
   },
   {
     logo: "gamedev.png",
     name: "Game Development",
+    file: 'Soal oprec GAMEDEV.pdf'
   },
 ];
 
@@ -46,7 +54,7 @@ const Daftar = () => {
     <div className="bg-figma-omahti">
       <title>Pendaftaran OmahTI 2021</title>
       <main className="static bg-omahti bg-no-repeat bg-cover bg-center">
-        <div className="flex flex-col items-center pt-16 space-y-4">
+        <div className="flex flex-col items-center pt-16 space-y-4 mx-4 lg:mx-24 2xl:mx-48">
           <h1
             className="font-black text-4xl lg:text-8xl leading-tight
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 "
@@ -67,26 +75,28 @@ const Daftar = () => {
                 Divisi
               </p>
             </div>
-            {divisionList.map((d) => (
-              <img
-                src={`/divisi-oti/${d.logo}`}
-                alt={d.name}
-                className="w-10 2xl:w-16"
-                onClick={() => setDivision(d.name)}
-              />
+            {divisionList.map((d, index) => (
+              <div className={`w-14 2xl:w-28 h-14 2xl:h-28 ${division === index ? 'bg-blue-500' : ''} rounded-lg flex items-center justify-center`}>
+                <img
+                  src={`/divisi-oti/${d.logo}`}
+                  alt={d.name}
+                  className="w-10 2xl:w-16"
+                  onClick={() => setDivision(index)}
+                />
+              </div>
             ))}
           </BaseCore>
-          {division && (
+          {division != null && (
             <Core noAni className="hidden xl:block">
-              <span className="text-xl font-bold">{division}</span>
+              <span className="text-xl font-bold">{divisionList[division].name}</span>
               <iframe
-                src={"/pdf/sample.pdf"}
+                src={`/pdf/${divisionList[division].file}`}
                 width="700px"
                 height="700px"
               ></iframe>
             </Core>
           )}
-          <div className="flex flex-row flex-wrap justify-center xl:justify-between">
+          <div className="flex flex-row flex-wrap justify-center xl:justify-between pb-5">
             <div className="flex flex-col items-center lg:items-start w-3/5">
               <h2
                 className="font-black text-5xl leading-tight
@@ -155,7 +165,7 @@ const Daftar = () => {
   );
 };
 
-const DivisiMobile = ({ logo, name }) => {
+const DivisiMobile = ({ logo, name, file }) => {
   const [expanded, setExpanded] = useState(null);
   return (
     <BaseCore
@@ -176,7 +186,7 @@ const DivisiMobile = ({ logo, name }) => {
         animate={{ height: expanded === name ? "5rem" : "0" }}
       >
         <Link
-          to={`/pdf/sample.pdf`}
+          to={`/pdf/${file}`}
           className="px-4 py-1.5 bg-blue-500 font-bold rounded-full text-lg"
         >
           Tugas

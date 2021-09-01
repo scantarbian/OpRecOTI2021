@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { useSpring, animated, config } from "@react-spring/web";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 
 import Benefit1 from "../assets/svg/benefits/one.svg";
 import Benefit2 from "../assets/svg/benefits/two.svg";
@@ -255,7 +255,7 @@ export const Dropdown = ({ question, answer }) => {
       >
         {question}
         <ChevronDownIcon className={`w-8 ${
-          isOpen && "transition duration-200 ease-in-out transform rotate-180" || "transition duration-200 ease-in-out transform"
+          isOpen ? "transition duration-200 ease-in-out transform rotate-180" : "transition duration-200 ease-in-out transform"
         }`}/>
       </button>
       {isOpen && <div className={`text-left px-4 py-2 text-xl`}>{answer}</div>}

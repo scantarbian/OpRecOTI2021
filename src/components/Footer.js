@@ -36,7 +36,7 @@ const socialMedias = [
 
 const Button = ({ children, target }) => {
   return (
-    <a href={target || "/"} className="bg-white rounded-lg p-2">
+    <a href={target || "/"} className="bg-white rounded-lg p-2 transform hover:scale-110">
       {children}
     </a>
   )

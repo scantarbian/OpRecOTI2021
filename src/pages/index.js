@@ -1,6 +1,5 @@
 import * as React from "react";
-import Footer from "../components/Footer";
-// import { Timeline } from "../components/Timeline";
+import Footer from "../components/Footer"
 import {
   Welcome,
   About,

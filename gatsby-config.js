@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://oprec.omahti.web.id",
@@ -6,15 +10,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets`,
-        path: `${__dirname}/src/assets`,
-      },
-    },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",

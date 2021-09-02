@@ -1,6 +1,5 @@
 import * as React from "react";
-import Footer from "../components/Footer";
-// import { Timeline } from "../components/Timeline";
+import Footer from "../components/Footer"
 import {
   Welcome,
   About,
@@ -12,7 +11,7 @@ import {
 } from "../components/Cards";
 import { motion } from "framer-motion";
 
-const HomepageAlt = () => {
+const Homepage = () => {
   const ballVariants = {
     initial: {
       scale: 0,
@@ -29,6 +28,7 @@ const HomepageAlt = () => {
       },
     },
   };
+
   return (
     <div className="bg-figma-omahti w-full overflow-hidden">
       <title>Open Recruitment OmahTI 2021</title>
@@ -406,4 +406,4 @@ function randomInteger() {
   return Math.floor(Math.random() * (30 - -100 + 1)) + -100;
 }
 
-export default HomepageAlt;
+export default Homepage;

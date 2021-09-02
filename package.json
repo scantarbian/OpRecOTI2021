@@ -1,6 +1,6 @@
 {
   "name": "open-recruitment-omah-ti-2021",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "private": true,
   "description": "Open Recruitment OmahTI 2021",
   "author": "scantarbian",
@@ -17,28 +17,31 @@
   "dependencies": {
     "@heroicons/react": "^1.0.4",
     "@loadable/component": "^5.15.0",
-    "@react-spring/parallax": "^9.2.4",
+    "@tailwindcss/forms": "^0.3.3",
+    "aws-s3": "^2.0.5",
+    "dotenv": "^10.0.0",
     "framer-motion": "^4.1.17",
-    "gatsby": "^3.11.1",
+    "gatsby": "^3.12.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^1.12.0",
     "gatsby-plugin-manifest": "^3.12.0",
     "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sharp": "^3.12.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^3.12.0",
-    "gatsby-transformer-sharp": "^3.12.0",
+    "gatsby-source-filesystem": "^3.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-intersection-observer": "^8.32.0",
+    "react-hook-form": "^7.14.0",
+    "react-intersection-observer": "^8.32.1",
     "react-responsive": "^9.0.0-beta.3",
+    "react-select": "^4.3.1",
     "react-spring": "^9.2.4",
     "react-use-gesture": "^9.1.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.1",
+    "autoprefixer": "^10.3.3",
     "gatsby-plugin-postcss": "^4.12.0",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.8"
   }
 }

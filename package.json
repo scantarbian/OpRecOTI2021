@@ -20,6 +20,7 @@
     "@tailwindcss/forms": "^0.3.3",
     "aws-s3": "^2.0.5",
     "dotenv": "^10.0.0",
+    "@react-spring/parallax": "^9.2.4",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.12.1",
     "gatsby-image": "^3.11.0",

@@ -1,5 +1,4 @@
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import { BaseCore, Core } from "../components/Cards";
 import { motion } from "framer-motion";
@@ -97,7 +96,7 @@ const Daftar = () => {
             </Core>
           )}
           <div className="flex flex-col lg:flex-row lg:justify-between space-x-0 space-y-10 lg:space-x-10 lg:space-y-0 w-full">
-            <div className="flex flex-col text-center lg:text-left space-y-6 w-full">
+            <div className="flex flex-col text-center lg:text-left space-y-6 w-full lg:w-2/3">
               <h2
                 className="font-black text-2xl lg:text-4xl leading-loose
                 text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left"
@@ -129,33 +128,35 @@ const Daftar = () => {
                 </p>
               </BaseCore>
             </div>
-            {/* <div className="flex flex-col items-center space-y-6 text-right">
+            <div className="flex flex-col text-center lg:text-right space-y-6 w-full lg:w-1/3">
               <h2
                 className="font-black text-2xl lg:text-4xl leading-loose
                 text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-right"
               >
                 Upload Tugas
               </h2>
-              <BaseCore className="flex px-8 py-5 rounded-3xl">
-                <div className="flex flex-col lg:block">
-                  <div
-                    className="font-extrabold text-3xl"
-                    style={{ fontFamily: "inter" }}
-                  >
-                    Submit
+              <Link to="/kumpul">
+                <BaseCore className="flex p-4 space-x-4 items-center rounded-3xl lg:justify-end">
+                  <div className="flex flex-col text-right">
+                    <div
+                      className="font-extrabold text-3xl"
+                      style={{ fontFamily: "inter" }}
+                    >
+                      Submit
+                    </div>
+                    <div
+                      className="font-medium mt-2"
+                      style={{ fontFamily: "inter" }}
+                    >
+                      Kumpulkan penugasanmu di link ini
+                    </div>
                   </div>
-                  <div
-                    className="font-medium mt-2"
-                    style={{ fontFamily: "inter" }}
-                  >
-                    Kumpulkan penugasanmu di link ini
+                  <div className='w-20 h-20 border-4 rounded-xl'>
+                    <UploadIcon />
                   </div>
-                </div>
-                <div className='w-20 h-20 border-4 rounded-xl'>
-                  <UploadIcon />
-                </div>
-              </BaseCore>
-            </div> */}
+                </BaseCore>
+              </Link>
+            </div>
           </div>
         </div>
       </main>

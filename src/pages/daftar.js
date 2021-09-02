@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { BaseCore, Core } from "../components/Cards";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import { UploadIcon } from "@heroicons/react/solid";
 
 const divisionList = [
   {
@@ -64,9 +65,9 @@ const Daftar = () => {
           {divisionList.map((d) => (
             <DivisiMobile name={d.name} logo={d.logo} />
           ))}
-          <BaseCore className="hidden xl:flex gap-x-5 lg:gap-x-16 items-center 2xl:pr-32 py-4 px-2 2xl:p-8 sm:p-2 ">
+          <BaseCore className="hidden lg:flex gap-x-5 2xl:gap-x-16 items-center py-4 px-9 2xl:p-2 w-auto xl:w-5/6 2xl:w-auto justify-evenly">
             <div
-              className="font-bold text-xl leading-tight text-left w-32 2xl:w-52 lg:text-5xl
+              className="font-bold text-xl leading-tight text-left w-32 lg:text-5xl
       text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 hidden lg:block "
             >
               <p>
@@ -80,14 +81,14 @@ const Daftar = () => {
                 <img
                   src={`/divisi-oti/${d.logo}`}
                   alt={d.name}
-                  className="w-10 2xl:w-16"
+                  className="w-10 2xl:w-14"
                   onClick={() => setDivision(index)}
                 />
               </div>
             ))}
           </BaseCore>
           {division != null && (
-            <Core noAni className="hidden xl:block">
+            <Core noAni className="hidden lg:block">
               <span className="text-xl font-bold">{divisionList[division].name}</span>
               <iframe
                 src={`/pdf/${divisionList[division].file}`}
@@ -96,33 +97,33 @@ const Daftar = () => {
               ></iframe>
             </Core>
           )}
-          <div className="flex flex-row flex-wrap justify-center xl:justify-between pb-5">
-            <div className="flex flex-col items-center lg:items-start w-3/5">
+          <div className="flex flex-row flex-wrap justify-center 2xl:justify-between pb-5 gap-5 2xl:gap-0">
+            <div className="flex flex-col items-center lg:items-start w-2/5 2xl:w-3/5">
               <h2
                 className="font-black text-5xl leading-tight
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left"
+      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left h-32 lg:h-auto"
               >
                 Catatan Penugasan
               </h2>
-              <BaseCore className="mt-10 w-full p-8">
+              <BaseCore className="mt-10 py-8 px-5 w-auto xl:w-4/5">
                 <span className="text-xl">
                   Penugasan dikerjakan dalam bentuk dokumen word dan dicompress
                   dalam bentuk zip
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-full p-8">
+              <BaseCore className="mt-10 py-8 px-5 w-auto xl:w-4/5">
                 <span className="text-xl">
                   Maksimal pengumpulan tugas sebelum melakukan wawancara
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-full p-8">
+              <BaseCore className="mt-10  py-8 px-5 w-auto xl:w-4/5">
                 <span className="text-xl">
                   Jika penugasan menggunakan platform lain seperti Hackerrank,
                   maka cukup melampirkan screenshot dan dimasukkan ke dalam
                   dokumen
                 </span>
               </BaseCore>
-              <BaseCore className="mt-10 w-full p-8">
+              <BaseCore className="mt-10  py-8 px-5 w-auto xl:w-4/5">
                 <span className="text-xl">
                   Apabila terdapat coding silahkan disertakan dalam satu file
                   zip
@@ -132,14 +133,14 @@ const Daftar = () => {
             <div className="flex flex-col items-center">
               <h2
                 className="font-black text-5xl leading-tight
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left"
+      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left h-32 xl:h-auto flex items-center"
               >
                 Upload Tugas
               </h2>
-              <div className="bg-white  flex px-8 py-5 rounded-3xl gap-x-6 mt-10">
+              <BaseCore className="flex px-8 py-5 rounded-3xl gap-x-6 mt-10">
                 <div className="flex flex-col lg:block">
                   <div
-                    className="text-black font-extrabold text-3xl"
+                    className="font-extrabold text-3xl"
                     style={{ fontFamily: "inter" }}
                   >
                     Submit
@@ -151,11 +152,10 @@ const Daftar = () => {
                     Kumpulkan penugasanmu di link ini
                   </div>
                 </div>
-                <StaticImage
-                  src="../assets/image/upload.png"
-                  alt="tombol upload"
-                />
-              </div>
+                <div className='w-20 h-20 border-4 rounded-xl'>
+                  <UploadIcon />
+                </div>
+              </BaseCore>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ const DivisiMobile = ({ logo, name, file }) => {
   const [expanded, setExpanded] = useState(null);
   return (
     <BaseCore
-      className="mt-10 w-4/5 p-6 flex flex-col items-center xl:hidden h-auto"
+      className="mt-10 w-4/5 p-6 flex flex-col items-center lg:hidden h-auto"
       onClick={() => {
         setExpanded(expanded === name ? false : name);
         console.log(expanded);

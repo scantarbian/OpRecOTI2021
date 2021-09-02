@@ -53,22 +53,22 @@ const Daftar = () => {
   const [division, setDivision] = useState(null);
   return (
     <div className="bg-figma-omahti">
-      <title>Pendaftaran OmahTI 2021</title>
+      <title>Penugasan OmahTI 2021</title>
       <main className="static bg-omahti bg-no-repeat bg-cover bg-center">
-        <div className="flex flex-col items-center pt-16 space-y-4 mx-4 lg:mx-24 2xl:mx-48">
+        <div className="flex flex-col items-center text-center py-16 space-y-10 mx-4 lg:mx-24 2xl:mx-48">
           <h1
-            className="font-black text-4xl lg:text-8xl leading-tight
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 "
+            className="font-black text-4xl lg:text-6xl
+            text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 "
           >
             PENUGASAN
           </h1>
           {divisionList.map((d) => (
             <DivisiMobile name={d.name} logo={d.logo} />
           ))}
-          <BaseCore className="hidden lg:flex gap-x-5 2xl:gap-x-16 items-center py-4 px-9 2xl:p-2 w-auto xl:w-5/6 2xl:w-auto justify-evenly">
+          <BaseCore className="hidden lg:flex items-center p-4 w-full justify-evenly">
             <div
               className="font-bold text-xl leading-tight text-left w-32 lg:text-5xl
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 hidden lg:block "
+              text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 hidden lg:block "
             >
               <p>
                 Pilih
@@ -88,56 +88,55 @@ const Daftar = () => {
             ))}
           </BaseCore>
           {division != null && (
-            <Core noAni className="hidden lg:block">
+            <Core noAni className="flex flex-col w-full">
               <span className="text-xl font-bold">{divisionList[division].name}</span>
               <iframe
                 src={`/pdf/${divisionList[division].file}`}
-                width="700px"
-                height="700px"
+                className="w-full" style={{ height: '100vh' }}
               ></iframe>
             </Core>
           )}
-          <div className="flex flex-row flex-wrap justify-center 2xl:justify-between pb-5 gap-5 2xl:gap-0">
-            <div className="flex flex-col items-center lg:items-start w-2/5 2xl:w-3/5">
+          <div className="flex flex-col lg:flex-row lg:justify-between space-x-0 space-y-10 lg:space-x-10 lg:space-y-0 w-full">
+            <div className="flex flex-col text-center lg:text-left space-y-6 w-full">
               <h2
-                className="font-black text-5xl leading-tight
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left h-32 lg:h-auto"
+                className="font-black text-2xl lg:text-4xl leading-loose
+                text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left"
               >
                 Catatan Penugasan
               </h2>
-              <BaseCore className="mt-10 py-8 px-5 w-auto xl:w-4/5">
-                <span className="text-xl">
+              <BaseCore className="p-4">
+                <p className="font-semibold text-lg">
                   Penugasan dikerjakan dalam bentuk dokumen word dan dicompress
-                  dalam bentuk zip
-                </span>
+                  dalam bentuk zip.
+                </p>
               </BaseCore>
-              <BaseCore className="mt-10 py-8 px-5 w-auto xl:w-4/5">
-                <span className="text-xl">
-                  Maksimal pengumpulan tugas sebelum melakukan wawancara
-                </span>
+              <BaseCore className="p-4">
+                <p className="font-semibold text-lg">
+                  Maksimal pengumpulan tugas sebelum melakukan wawancara.
+                </p>
               </BaseCore>
-              <BaseCore className="mt-10  py-8 px-5 w-auto xl:w-4/5">
-                <span className="text-xl">
+              <BaseCore className="p-4">
+                <p className="font-semibold text-lg">
                   Jika penugasan menggunakan platform lain seperti Hackerrank,
                   maka cukup melampirkan screenshot dan dimasukkan ke dalam
-                  dokumen
-                </span>
+                  dokumen.
+                </p>
               </BaseCore>
-              <BaseCore className="mt-10  py-8 px-5 w-auto xl:w-4/5">
-                <span className="text-xl">
+              <BaseCore className="p-4">
+                <p className="font-semibold text-lg">
                   Apabila terdapat coding silahkan disertakan dalam satu file
-                  zip
-                </span>
+                  zip.
+                </p>
               </BaseCore>
             </div>
-            <div className="flex flex-col items-center">
+            {/* <div className="flex flex-col items-center space-y-6 text-right">
               <h2
-                className="font-black text-5xl leading-tight
-      text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-left h-32 xl:h-auto flex items-center"
+                className="font-black text-2xl lg:text-4xl leading-loose
+                text-transparent bg-clip-text bg-gradient-to-br from-white to-purple-400 text-center lg:text-right"
               >
                 Upload Tugas
               </h2>
-              <BaseCore className="flex px-8 py-5 rounded-3xl gap-x-6 mt-10">
+              <BaseCore className="flex px-8 py-5 rounded-3xl">
                 <div className="flex flex-col lg:block">
                   <div
                     className="font-extrabold text-3xl"
@@ -156,7 +155,7 @@ const Daftar = () => {
                   <UploadIcon />
                 </div>
               </BaseCore>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
@@ -169,13 +168,13 @@ const DivisiMobile = ({ logo, name, file }) => {
   const [expanded, setExpanded] = useState(null);
   return (
     <BaseCore
-      className="mt-10 w-4/5 p-6 flex flex-col items-center lg:hidden h-auto"
+      className="p-4 flex flex-col items-center lg:hidden h-auto w-full"
       onClick={() => {
         setExpanded(expanded === name ? false : name);
         console.log(expanded);
       }}
     >
-      <div className="flex flex-row gap-x-5 w-full">
+      <div className="flex flex-row items-center text-left space-x-4 w-full">
         <div className="w-7">
           <img src={`/divisi-oti/${logo}`} />
         </div>

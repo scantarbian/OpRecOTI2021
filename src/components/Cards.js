@@ -132,7 +132,7 @@ export const Welcome = () => {
           <span>Daftar</span>
         </a>
         <Link
-          to="/daftar"
+          to="/tugas"
           className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
           transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
           transform hover:scale-110 focus:scale-100"
@@ -398,7 +398,7 @@ export const ReadyToJoinUs = () => {
           <span>Daftar</span>
         </a>
         <Link
-          to="/daftar"
+          to="/tugas"
           className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
           transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
           transform hover:scale-110 focus:scale-100"

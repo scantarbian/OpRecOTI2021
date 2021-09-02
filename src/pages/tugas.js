@@ -155,7 +155,7 @@ const Daftar = () => {
               </h2>
               
                 <BaseCore>
-                <Link to="/kumpul" className="flex p-4 space-x-4 items-center rounded-3xl lg:justify-end">
+                <Link to="/" className="flex p-4 space-x-4 items-center rounded-3xl lg:justify-end">
                   <div className="flex flex-col text-right">
                     <div
                       className="font-extrabold text-3xl"

@@ -77,7 +77,7 @@ const Daftar = () => {
               </p>
             </div>
             {divisionList.map((d, index) => (
-              <div className={`w-14 2xl:w-28 h-14 2xl:h-28 ${division === index ? 'bg-blue-500' : ''} rounded-lg flex items-center justify-center`}>
+              <div className={`w-14 2xl:w-28 h-14 2xl:h-28 ${division === index ? 'bg-yellow-400' : ''} rounded-lg flex items-center justify-center`}>
                 <img
                   src={`/divisi-oti/${d.logo}`}
                   alt={d.name}
@@ -186,7 +186,7 @@ const DivisiMobile = ({ logo, name, file }) => {
       >
         <Link
           to={`/pdf/${file}`}
-          className="px-4 py-1.5 bg-blue-500 font-bold rounded-full text-lg"
+          className="px-4 py-1.5 bg-yellow-400 font-bold rounded-full text-lg"
         >
           Tugas
         </Link>

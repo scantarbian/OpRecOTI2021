@@ -10,6 +10,8 @@ import {
   FaqDropdown,
 } from "../components/Cards";
 import { motion } from "framer-motion";
+import { randomInteger } from "../lib/utils";
+
 
 const Homepage = () => {
   const ballVariants = {
@@ -401,9 +403,5 @@ const Homepage = () => {
     </div>
   );
 };
-
-function randomInteger() {
-  return Math.floor(Math.random() * (30 - -100 + 1)) + -100;
-}
 
 export default Homepage;

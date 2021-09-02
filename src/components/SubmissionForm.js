@@ -1,49 +1,67 @@
 import { BaseCore } from './Cards'
 import React from "react";
 import { Controller, useForm } from "react-hook-form"
-import Select from 'react-select';
+import Select from 'react-select'; 
 
 const divisions = [
   {
     value: 'cp',
-    label: 'Competitive Programming'
+    label: 'Competitive Programming',
+    dirName: 'cp',
   },
   {
-    value: 'wd',
-    label: 'Web Development'
+    value: 'webdev',
+    label: 'Web Development',
+    dirName: 'webdev'
   },
   {
-    value: 'ds',
-    label: 'Data Science'
+    value: 'datsci',
+    label: 'Data Science',
+    dirName: 'datsci'
   },
   {
-    value: 'uix',
-    label: 'User Interface / User Experience'
+    value: 'uiux',
+    label: 'User Interface / User Experience',
+    dirName: 'uiux'
   },
   {
-    value: 'ma',
-    label: 'Mobile Apps'
+    value: 'mobapp',
+    label: 'Mobile Apps',
+    dirName: 'mobapp'
   },
   {
-    value: 'wds',
-    label: 'Web Design'
+    value: 'webdes',
+    label: 'Web Design',
+    dirName: 'webdes'
   },
   {
-    value: 'cs',
-    label: 'Cyber Security'
+    value: 'cysec',
+    label: 'Cyber Security',
+    dirName: 'cysec'
   },
   {
-    value: 'gd',
-    label: 'Game Development'
+    value: 'gamedev',
+    label: 'Game Development',
+    dirName: 'gamedev'
   }
 ]
 
-
 export const SubmissionForm = () => {
-  const { register, handleSubmit, formState: { errors }, watch, control } = useForm()
+  const { register, handleSubmit, control } = useForm()
   
-  const submissionHandler = (data) => {
-    console.log(data)
+  const submissionHandler = ({ fullname, division, file }) => {
+    console.log(file)
+    // upload file to /api/s3
+    
+
+    fetch('/api/s3', {
+      method: 'POST',
+      body: JSON.stringify({fullname: fullname, division: division, file: file[0]}),
+    }).then(res => {
+      console.log(res.status)
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   return (
@@ -65,9 +83,10 @@ export const SubmissionForm = () => {
           <label for="divison-select" className="font-bold">Divisi</label>
           <Controller 
             control={control}
-            name="divison"
+            name="division"
             render={({ field: { onChange, onBlur, value }}) => (
               <Select
+                id="division-select"
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -79,9 +98,11 @@ export const SubmissionForm = () => {
         </BaseCore>
         <BaseCore className="flex flex-col p-8 text-left space-y-2">
           <label for="file-upload" className="font-bold">Unggah</label>
-          {/* <Controller 
-            control={control}
-          /> */}
+          <input
+            id="file-upload"
+            type="file"
+            {...register("file", { required: true })}
+          />
         </BaseCore>
       </div>
       <div className="flex justify-end">

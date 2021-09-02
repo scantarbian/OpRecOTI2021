@@ -12,7 +12,7 @@ import Benefit4 from "../assets/svg/benefits/four.svg";
 
 export const Core = ({ children, className, noAni }) => (
   <BaseCore
-    className={`flex flex-col space-y-6 text-center items-center mx-4 lg:mx-24 2xl:mx-48 p-8 z-10 ${className}`}
+    className={`flex flex-col space-y-6 text-center items-center mx-4 lg:mx-24 2xl:mx-48 p-8 ${className}`}
     noAni={noAni}
   >
     {children}
@@ -42,7 +42,7 @@ export const BaseCore = ({ children, className, noAni, onClick }) => {
             }
       }
       className={`
-      text-white backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black
+      text-white backdrop-filter backdrop-blur-xl bg-opacity-30 bg-black z-10
       rounded-3xl
       ${className}`}
     >
@@ -132,7 +132,7 @@ export const Welcome = () => {
           <span>Daftar</span>
         </a>
         <Link
-          to="/daftar"
+          to="/tugas"
           className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
           transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
           transform hover:scale-110 focus:scale-100"
@@ -398,7 +398,7 @@ export const ReadyToJoinUs = () => {
           <span>Daftar</span>
         </a>
         <Link
-          to="/daftar"
+          to="/tugas"
           className="p-2 px-8 bg-yellow-400 font-bold rounded-full text-xl
           transition duration-300 ease-in-out hover:bg-yellow-600 focus:bg-yellow-300
           transform hover:scale-110 focus:scale-100"

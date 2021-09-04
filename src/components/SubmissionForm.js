@@ -49,25 +49,34 @@ const divisions = [
 export const SubmissionForm = () => {
   const { register, handleSubmit, control } = useForm()
   
-  const submissionHandler = ({ fullname, division, file }) => {
-    console.log(file)
-    // upload file to /api/s3
-    
+  const submissionHandler = ({ fullname, division, files }) => {
+    const formData = new FormData()
+    formData.append('file', files[0])
+    console.log(formData.get('file'))
 
+    // upload file to /api/s3
     fetch('/api/s3', {
       method: 'POST',
-      body: JSON.stringify({fullname: fullname, division: division, file: file[0]}),
-    }).then(res => {
-      console.log(res.status)
-    }).catch(err => {
-      console.log(err)
+      body: formData
     })
+    .then(res => {
+      console.log(res.status)
+    })
+    
+    // fetch('/api/s3', {
+    //   method: 'POST',
+    //   body: JSON.stringify({fullname: fullname, division: division, file: file[0]}),
+    // }).then(res => {
+    //   console.log(res.status)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   }
 
   return (
     <form className="w-full space-y-6" onSubmit={handleSubmit(submissionHandler)}>
       <BaseCore className="flex flex-col p-8 text-left space-y-2">
-          <label for="fullname" className="font-bold">Nama Lengkap</label>        
+          <label htmlFor="fullname" className="font-bold">Nama Lengkap</label>        
           <input
             id="fullname"
             type="text"
@@ -80,7 +89,7 @@ export const SubmissionForm = () => {
       </BaseCore>
       <div className="flex space-x-6 justify-between">
         <BaseCore className="flex flex-col p-8 text-left space-y-2 flex-1">
-          <label for="divison-select" className="font-bold">Divisi</label>
+          <label htmlFor="divison-select" className="font-bold">Divisi</label>
           <Controller 
             control={control}
             name="division"
@@ -97,11 +106,11 @@ export const SubmissionForm = () => {
           />
         </BaseCore>
         <BaseCore className="flex flex-col p-8 text-left space-y-2">
-          <label for="file-upload" className="font-bold">Unggah</label>
+          <label htmlFor="file-upload" className="font-bold">Unggah</label>
           <input
             id="file-upload"
             type="file"
-            {...register("file", { required: true })}
+            {...register("files", { required: true })}
           />
         </BaseCore>
       </div>

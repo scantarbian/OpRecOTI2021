@@ -12,8 +12,24 @@ export default function handler(req, res){
   if (req.method !== 'POST') {
     return res.status(405).end();
   } else {
-    const { fullname, division } = req.body;
-    console.log(req.files)
+    console.log(res.body)
+    // if (!req.files || !req.files.file) {
+    //   return res.status(400).end();
+    // } else {
+    //   // get file
+    //   const file = req.files.file;
+    //   // get file name
+    //   const fileName = file.name;
+    //   // get file type
+    //   const fileType = file.mimetype;
+    //   // get file size
+    //   const fileSize = file.data.length;
+    //   // get file data
+    //   const fileData = file.data;
+
+    //   console.log(fileName)
+    // }
+
 
     // const S3Client = new S3({...config, dirName: division.dirName});
     // S3Client.uploadFile(data.file[0])

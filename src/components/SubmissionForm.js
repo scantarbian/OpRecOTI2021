@@ -52,7 +52,8 @@ export const SubmissionForm = () => {
   const submissionHandler = ({ fullname, division, files }) => {
     const formData = new FormData()
     formData.append('file', files[0])
-    console.log(formData.get('file'))
+    formData.append('fullname', fullname)
+    formData.append('division', division.dirName)
 
     // upload file to /api/s3
     fetch('/api/s3', {
@@ -62,15 +63,6 @@ export const SubmissionForm = () => {
     .then(res => {
       console.log(res.status)
     })
-    
-    // fetch('/api/s3', {
-    //   method: 'POST',
-    //   body: JSON.stringify({fullname: fullname, division: division, file: file[0]}),
-    // }).then(res => {
-    //   console.log(res.status)
-    // }).catch(err => {
-    //   console.log(err)
-    // })
   }
 
   return (

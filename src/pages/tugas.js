@@ -105,7 +105,7 @@ const Daftar = () => {
             ))}
           </BaseCore>
           {division != null && (
-            <Core noAni className="flex flex-col w-full">
+            <Core noAni className="hidden lg:flex flex-col w-full">
               <span className="text-xl font-bold">{divisionList[division].name}</span>
               <iframe
                 src={`/pdf/${divisionList[division].file}`}

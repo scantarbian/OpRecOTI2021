@@ -132,7 +132,7 @@ export const SubmissionForm = () => {
         />
       </BaseCore>
       <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6 justify-between">
-        <BaseCore className="flex flex-col p-8 text-center lg:text-left space-y-2 flex-1">
+        <BaseCore className="flex flex-col p-8 text-center lg:text-left space-y-2 flex-1 z-20">
           <label htmlFor="divison-select" className="font-bold">
             Divisi
           </label>

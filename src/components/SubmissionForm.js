@@ -41,24 +41,23 @@ const divisions = [
 export const SubmissionForm = () => {
   const { register, handleSubmit, control } = useForm()
   
-  const submissionHandler = ({ fullname, division, files }) => {
+  const submissionHandler = async ({ fullname, division, files }) => {
     const file = files[0]
+    
+    console.log(file)
 
-    fetch(`https://gxoudxo1aa.execute-api.ap-southeast-1.amazonaws.com/production/upload?division=${division.value}&filename=${file.name}&filetype=${file.type}`, {
+    const response = await fetch(`https://gxoudxo1aa.execute-api.ap-southeast-1.amazonaws.com/production/upload?division=${division.value}&filename=${file.name}&filetype=${file.type}`, {
       method: 'GET',
     })
-    .then(res => {
-      console.log(res)
-      if (res.uploadURL) {
-        fetch(res.uploadURL, {
-          method: 'PUT',
-          body: file,
-        })
-        .then(res => {
-          console.log('Upload Success: ', res)
-        })
-      }
+
+    console.log('Response: ', response)
+
+    const result = await fetch(response.uploadURL, {
+      method: 'PUT',
+      body: file.buffer,
     })
+    
+    console.log('Result: ', result)
   }
 
   return (

@@ -43,16 +43,15 @@ export const SubmissionForm = () => {
   
   const submissionHandler = async ({ fullname, division, files }) => {
     const file = files[0]
-    
-    console.log(file)
 
     const response = await fetch(`https://gxoudxo1aa.execute-api.ap-southeast-1.amazonaws.com/production/upload?division=${division.value}&filename=${file.name}&filetype=${file.type}`, {
       method: 'GET',
     })
 
-    console.log('Response: ', response)
+    const data = await response.json()
+    console.log(data.uploadURL)
 
-    const result = await fetch(response.uploadURL, {
+    const result = await fetch(data.uploadURL, {
       method: 'PUT',
       body: file.buffer,
     })

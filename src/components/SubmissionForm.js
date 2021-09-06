@@ -50,15 +50,11 @@ export const SubmissionForm = () => {
   const { register, handleSubmit, control } = useForm()
   
   const submissionHandler = ({ fullname, division, files }) => {
-    const formData = new FormData()
-    formData.append('file', files[0])
-    formData.append('fullname', fullname)
-    formData.append('division', division.dirName)
+    console.log(files[0])
 
     // upload file to /api/s3
     fetch('/api/s3', {
-      method: 'POST',
-      body: formData
+      method: 'GET',
     })
     .then(res => {
       console.log(res.status)

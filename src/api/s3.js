@@ -21,16 +21,18 @@ export default function handler(req, res) {
     } else {
       const data = req.body;
       const file = req.files[0];
+      console.log(file.originalname);
+      console.log(file.mimetype);
 
-      const S3Client = new S3({...config, dirName: data.divison});
-      S3Client.uploadFile(file)
-        .then(data => {
-          console.log(data)
-        })
-        .catch(err => {
-          console.log(err)
-        }
-      )
+    //   const S3Client = new S3({...config, dirName: data.divison});
+    //   S3Client.uploadFile(file)
+    //     .then(data => {
+    //       console.log(data)
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //     }
+    //   )
     }
 
     return res.status(200).end();

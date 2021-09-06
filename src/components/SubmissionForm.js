@@ -49,7 +49,6 @@ export const SubmissionForm = () => {
     })
 
     const data = await response.json()
-    console.log(data.uploadURL)
 
     const result = await fetch(data.uploadURL, {
       method: 'PUT',

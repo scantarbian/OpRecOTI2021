@@ -7,42 +7,34 @@ const divisions = [
   {
     value: 'cp',
     label: 'Competitive Programming',
-    dirName: 'cp',
   },
   {
     value: 'webdev',
     label: 'Web Development',
-    dirName: 'webdev'
   },
   {
     value: 'datsci',
     label: 'Data Science',
-    dirName: 'datsci'
   },
   {
     value: 'uiux',
     label: 'User Interface / User Experience',
-    dirName: 'uiux'
   },
   {
     value: 'mobapp',
     label: 'Mobile Apps',
-    dirName: 'mobapp'
   },
   {
     value: 'webdes',
     label: 'Web Design',
-    dirName: 'webdes'
   },
   {
     value: 'cysec',
     label: 'Cyber Security',
-    dirName: 'cysec'
   },
   {
     value: 'gamedev',
     label: 'Game Development',
-    dirName: 'gamedev'
   }
 ]
 
@@ -50,14 +42,22 @@ export const SubmissionForm = () => {
   const { register, handleSubmit, control } = useForm()
   
   const submissionHandler = ({ fullname, division, files }) => {
-    console.log(files[0])
+    const file = files[0]
 
-    // upload file to /api/s3
-    fetch('/api/s3', {
+    fetch(`https://gxoudxo1aa.execute-api.ap-southeast-1.amazonaws.com/production/upload?division=${division.value}&filename=${file.name}&filetype=${file.type}`, {
       method: 'GET',
     })
     .then(res => {
-      console.log(res.status)
+      console.log(res)
+      if (res.uploadURL) {
+        await fetch(res.uploadURL, {
+          method: 'PUT',
+          body: file,
+        })
+        .then(res => {
+          console.log('Upload Success: ', res)
+        })
+      }
     })
   }
 

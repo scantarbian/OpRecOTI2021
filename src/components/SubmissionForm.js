@@ -50,7 +50,7 @@ export const SubmissionForm = () => {
     .then(res => {
       console.log(res)
       if (res.uploadURL) {
-        await fetch(res.uploadURL, {
+        fetch(res.uploadURL, {
           method: 'PUT',
           body: file,
         })

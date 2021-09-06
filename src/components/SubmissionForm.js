@@ -44,15 +44,22 @@ export const SubmissionForm = () => {
   const submissionHandler = async ({ fullname, division, files }) => {
     const file = files[0]
 
+    // get pre-signed URL
     const response = await fetch(`https://gxoudxo1aa.execute-api.ap-southeast-1.amazonaws.com/production/upload?division=${division.value}&filename=${file.name}&filetype=${file.type}`, {
       method: 'GET',
     })
 
+    // capture pre-signed URL
     const data = await response.json()
 
+    // upload file to S3
     const result = await fetch(data.uploadURL, {
       method: 'PUT',
       body: file.buffer,
+      headers: {
+        'Content-Type': file.type,
+        'x-amz-acl': 'public-read'
+      },
     })
     
     console.log('Result: ', result)

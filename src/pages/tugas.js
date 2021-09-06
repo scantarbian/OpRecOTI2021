@@ -225,7 +225,7 @@ const Daftar = () => {
           className="absolute bg-gradient-to-bl from-green-900 to-green-300 w-28 h-28 rounded-full ml-24"
           style={{ top: "26rem" }}
         />
-                <motion.div
+        <motion.div
           variants={{
             ...ballVariants,
             animate: {
@@ -243,7 +243,7 @@ const Daftar = () => {
           className="absolute right-0 bg-gradient-to-br from-yellow-300 to-green-300 w-24 h-24 rounded-full mr-72"
           style={{ top: "32rem" }}
         />
-                <motion.div
+        <motion.div
           variants={{
             ...ballVariants,
             animate: {
@@ -261,7 +261,7 @@ const Daftar = () => {
           className="absolute bg-gradient-to-bl from-yellow-700 via-yellow-300 to-yellow-700 w-24 h-24 rounded-full ml-52"
           style={{ top: "36rem" }}
         />
-                <motion.div
+        <motion.div
           variants={{
             ...ballVariants,
             animate: {

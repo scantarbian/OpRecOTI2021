@@ -1,5 +1,5 @@
 import { BaseCore } from "./Cards";
-import React, { useState } from "react";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import { toast } from "react-toastify";
@@ -73,6 +73,8 @@ export const SubmissionForm = () => {
 
     // get file extension out of file.name
     const fileExtension = file.name.split(".").pop();
+
+    // handle empty filetype
     if (!fileType) {
       if (fileExtension === "rar") {
         fileType = "application/x-rar-compressed";
@@ -112,10 +114,10 @@ export const SubmissionForm = () => {
 
   return (
     <form
-      className="w-full space-y-6"
+      className="w-full space-y-6 z-10"
       onSubmit={handleSubmit(submissionHandler)}
     >
-      <BaseCore className="flex flex-col p-8 text-left space-y-2">
+      <BaseCore className="flex flex-col p-8 text-center lg:text-left space-y-2">
         <label htmlFor="fullname" className="font-bold">
           Nama Lengkap
         </label>
@@ -129,8 +131,8 @@ export const SubmissionForm = () => {
           {...register("fullname", { required: true })}
         />
       </BaseCore>
-      <div className="flex space-x-6 justify-between">
-        <BaseCore className="flex flex-col p-8 text-left space-y-2 flex-1">
+      <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6 justify-between">
+        <BaseCore className="flex flex-col p-8 text-center lg:text-left space-y-2 flex-1">
           <label htmlFor="divison-select" className="font-bold">
             Divisi
           </label>
@@ -149,7 +151,7 @@ export const SubmissionForm = () => {
             )}
           />
         </BaseCore>
-        <BaseCore className="flex flex-col p-8 text-left space-y-2">
+        <BaseCore className="flex flex-col p-8 text-center lg:text-left space-y-2">
           <label htmlFor="file-upload" className="font-bold">
             Unggah
           </label>
@@ -157,23 +159,16 @@ export const SubmissionForm = () => {
             id="file-upload"
             type="file"
             {...register("files", { required: true })}
-          />
+          />  
         </BaseCore>
       </div>
-      <BaseCore className="flex p-8 text-left space-x-5">
-        <p className="font-semibold text-lg">
-          Nama berkas yang di unggah harus sesuai dengan format:{" "}
-          <b>Divisi_Nama_Angkatan</b> dan dalam format <b>.zip/.rar</b>
-        </p>
-        <button
-          type="submit"
-          className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl text-white
+      <div className="flex justify-center lg:justify-end">
+        <button type="submit" className="p-2 px-8 bg-blue-500 font-bold rounded-full text-xl text-white
         transition duration-300 ease-in-out hover:bg-blue-600 focus:bg-blue-400
-        transform hover:scale-110 focus:scale-100"
-        >
+        transform hover:scale-110 focus:scale-100" >
           Submit
         </button>
-      </BaseCore>
+      </div>
     </form>
   );
 };

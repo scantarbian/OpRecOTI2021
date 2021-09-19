@@ -305,12 +305,12 @@ const DivisiMobile = ({ logo, name, file }) => {
         className="grid items-center overflow-hidden"
         animate={{ height: expanded === name ? "5rem" : "0" }}
       >
-        <Link
-          to={`/pdf/${file}`}
+        <a
+          href={`/pdf/${file}`}
           className="px-4 py-1.5 bg-yellow-400 font-bold rounded-full text-lg"
         >
           Tugas
-        </Link>
+        </a>
       </motion.div>
     </BaseCore>
   );

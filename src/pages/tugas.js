@@ -80,7 +80,7 @@ const Daftar = () => {
             PENUGASAN
           </h1>
           {divisionList.map((d) => (
-            <DivisiMobile name={d.name} logo={d.logo} />
+            <DivisiMobile name={d.name} logo={d.logo} file={d.file}/>
           ))}
           <BaseCore className="hidden lg:flex items-center p-4 w-full justify-evenly">
             <div
